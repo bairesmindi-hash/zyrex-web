@@ -84,7 +84,7 @@
             right: 2%;
             width: 650px;
             height: 650px;
-            background: radial-gradient(circle, rgba(210, 210, 255, 0.06) 0%, rgba(90, 90, 130, 0.02) 50%, transparent 75%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, rgba(100, 100, 100, 0.02) 50%, transparent 75%);
             border-radius: 50%;
             filter: blur(100px);
             z-index: -1;
@@ -98,25 +98,11 @@
             left: 15%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(240, 240, 240, 0.07) 0%, rgba(70, 70, 110, 0.02) 45%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, rgba(80, 80, 80, 0.02) 45%, transparent 70%);
             border-radius: 50%;
             filter: blur(95px);
             z-index: -1;
             animation: floatLight3 16s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .light-blob-4 {
-            position: absolute;
-            top: 90%;
-            right: 20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 65%);
-            border-radius: 50%;
-            filter: blur(90px);
-            z-index: -1;
-            animation: floatLight1 20s ease-in-out infinite reverse;
             pointer-events: none;
         }
 
@@ -133,21 +119,21 @@
         }
         
         .safari-viewport::-webkit-scrollbar {
-            width: 3px;
+            width: 6px;
         }
         .safari-viewport::-webkit-scrollbar-track {
-            background: #0d0d0f;
+            background: #08080a;
         }
         .safari-viewport::-webkit-scrollbar-thumb {
             background: #27272a;
-            border-radius: 3px;
+            border-radius: 4px;
         }
 
-        .phone-container {
-            perspective: 1000px;
+        .mac-container {
+            perspective: 1400px;
         }
 
-        .floating-phone {
+        .floating-mac {
             transform-style: preserve-3d;
             transition: transform 0.1s ease-out;
             will-change: transform;
@@ -160,10 +146,9 @@
     <div class="light-blob-1"></div>
     <div class="light-blob-2"></div>
     <div class="light-blob-3"></div>
-    <div class="light-blob-4"></div>
 
-    <!-- Navbar -->
-    <header class="border-b border-gray-800/40 sticky top-0 z-50 bg-[#050507]/80 backdrop-blur-md">
+    <!-- Navbar Principal Real -->
+    <header class="border-b border-gray-800/40 sticky top-0 z-40 bg-[#050507]/80 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between py-3">
             <a href="#hero" class="flex items-center space-x-3.5 group">
                 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-800 to-gray-950 border border-gray-700 flex items-center justify-center shadow-lg group-hover:border-gray-500 transition">
@@ -179,136 +164,152 @@
 
             <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
                 <a href="#hero" class="hover:text-white transition">Home</a>
-                <a href="#features" class="hover:text-white transition">Features</a>
+                <a href="#mac-showcase" class="hover:text-white transition">Live Web Preview</a>
                 <a href="#pricing" class="hover:text-white transition">Pricing</a>
                 <a href="#feedback" class="hover:text-white transition">Feedback</a>
-                <a href="#terms" class="hover:text-white transition text-gray-300 font-semibold">Terms</a>
+                <a href="#terms" class="hover:text-white transition">Terms</a>
             </nav>
             <div class="flex items-center space-x-3">
-                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="bg-cardbg/80 border border-gray-800 hover:border-gray-700 text-sm font-medium px-4 py-2 rounded-lg transition flex items-center space-x-2 shadow-sm backdrop-blur text-gray-300">
-                    <svg class="w-4 h-4 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.011c3.927 1.793 8.18 1.793 12.061 0a0.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a0.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a0.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                    <span>Discord Login</span>
-                </a>
+                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-gray-200 text-gray-950 font-semibold text-sm px-5 py-2.5 rounded-xl transition cursor-pointer shadow-lg">Login</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="max-w-6xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <!-- Hero Section Real -->
+    <section id="hero" class="max-w-5xl mx-auto px-6 py-20 text-center space-y-8">
+        <div class="metallic-z-container inline-block">
+            <span class="text-8xl md:text-9xl font-black font-gothic metallic-z tracking-tighter block select-none">
+                Z
+            </span>
+        </div>
+
+        <div class="flex items-center justify-center space-x-3">
+            <span class="text-2xl md:text-4xl font-extrabold text-white tracking-tight">Best Web & Discord Developer</span>
+            <span class="text-xs md:text-sm font-semibold bg-gray-900/80 text-gray-200 px-3.5 py-1 rounded-full border border-gray-700 backdrop-blur shadow-inner">
+                Software
+            </span>
+        </div>
+
+        <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-gray-200 max-w-3xl mx-auto">
+            Custom software built around web control and exclusive features.
+        </h1>
         
-        <div class="lg:col-span-7 space-y-6 text-left">
-            <div class="metallic-z-container inline-block">
-                <span class="text-7xl md:text-9xl font-black font-gothic metallic-z tracking-tighter block select-none">
-                    Z
-                </span>
-            </div>
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            We craft high-end custom Discord bots and modern web apps that give your project a unique, modern, and professional edge.
+        </p>
 
-            <div class="flex items-center space-x-3 pt-2">
-                <span class="text-xl md:text-3xl font-extrabold text-white tracking-tight">Best Web & Discord</span>
-                <span class="text-xs md:text-sm font-semibold bg-gray-900/80 text-gray-200 px-3 py-1 rounded-full border border-gray-700 backdrop-blur shadow-inner">
-                    Developer
-                </span>
-            </div>
+        <div class="flex flex-wrap justify-center gap-4 pt-4">
+            <a href="#pricing" class="bg-white hover:bg-gray-200 text-gray-950 font-semibold px-8 py-3.5 rounded-xl transition shadow-lg flex items-center space-x-2 text-sm">
+                <span>View Pricing</span>
+                <span>↗</span>
+            </a>
+            <a href="#mac-showcase" class="bg-cardbg/80 border border-gray-800 hover:border-gray-700 text-white font-medium px-8 py-3.5 rounded-xl transition text-sm backdrop-blur">
+                Explorar Mac Interactiva ↗
+            </a>
+        </div>
+    </section>
 
-            <h1 class="text-2xl md:text-4xl font-bold tracking-tight leading-snug text-gray-300">
-                Custom software built around web control and exclusive features.
-            </h1>
-            
-            <p class="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed">
-                We craft high-end custom Discord bots and modern web apps that give your project a unique, modern, and professional edge.
-            </p>
-
-            <div class="flex flex-wrap gap-4 pt-2">
-                <a href="#pricing" class="bg-white hover:bg-gray-200 text-gray-950 font-semibold px-6 py-3 rounded-xl transition shadow-lg flex items-center space-x-2 text-sm">
-                    <span>Pricing</span>
-                    <span>↗</span>
-                </a>
-                <a href="#feedback" class="bg-cardbg/80 border border-gray-800 hover:border-gray-700 text-white font-medium px-6 py-3 rounded-xl transition text-sm backdrop-blur">
-                    Leave Feedback
-                </a>
-            </div>
+    <!-- Sección MacBook 3D: Vista de la Web Principal sin paneles -->
+    <section id="mac-showcase" class="max-w-5xl mx-auto px-6 py-16">
+        <div class="text-center mb-10 space-y-2">
+            <span class="text-xs uppercase tracking-widest text-white font-semibold">— VISTA INTERACTIVA EN VIVO —</span>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-white">Vista previa de la plataforma</h2>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto">Explora el contenido y diseño integrado de Zyrex directamente desde la laptop.</p>
         </div>
 
-        <!-- Celular 3D Interactivo -->
-        <div class="lg:col-span-5 flex justify-center phone-container">
-            <div id="phone3d" class="floating-phone w-[300px] h-[590px] bg-[#1a1a1e] border-[8px] border-[#2c2c32] rounded-[48px] shadow-2xl relative overflow-hidden flex flex-col">
+        <div class="flex justify-center mac-container">
+            <div id="mac3d" class="floating-mac w-full max-w-[950px] bg-[#1a1a1f] border border-gray-700 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col">
                 
-                <div class="absolute top-2.5 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-full z-30 flex items-center justify-between px-2 shadow-sm">
-                    <div class="w-2.5 h-2.5 bg-neutral-900 rounded-full"></div>
-                    <div class="w-2 h-2 bg-gray-700/80 rounded-full animate-pulse"></div>
+                <!-- Barra superior simulada de la Mac (Navegador) -->
+                <div class="bg-[#121318] px-5 py-3 border-b border-gray-800 flex items-center justify-between">
+                    <div class="flex space-x-2">
+                        <div class="w-3.5 h-3.5 rounded-full bg-red-500/80"></div>
+                        <div class="w-3.5 h-3.5 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3.5 h-3.5 rounded-full bg-green-500/80"></div>
+                    </div>
+                    <div class="text-xs text-gray-400 font-mono tracking-wider">https://zyrex.app</div>
+                    <div class="w-4"></div>
                 </div>
 
-                <div class="bg-[#141416] pt-10 pb-2.5 px-4 border-b border-gray-800 z-20 flex flex-col space-y-2">
-                    <div class="bg-[#1f2026] rounded-xl px-3 py-1.5 flex items-center justify-between border border-gray-800/80 shadow-inner">
-                        <div class="flex items-center space-x-2 text-gray-400 text-[11px]">
-                            <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                            <span class="text-white font-medium tracking-tight lowercase">zyrex.xyz</span>
+                <!-- CONTENEDOR: La Web Completa (Home, Features, Precios, Términos y Condiciones) -->
+                <div class="safari-viewport overflow-y-auto bg-[#050507] text-left h-[620px] p-6 md:p-10 space-y-12">
+                    
+                    <!-- Navbar interna de la Web -->
+                    <div class="flex justify-between items-center border-b border-gray-800/80 pb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-gray-800 to-gray-950 border border-gray-700 flex items-center justify-center">
+                                <span class="text-white font-black text-sm font-gothic">Z</span>
+                            </div>
+                            <span class="font-extrabold text-white text-sm tracking-wider">zyrex<span class="text-gray-400">.</span></span>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-cardbg border border-gray-800 px-3 py-1.5 rounded-lg">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-xs text-gray-300 font-medium">Online</span>
                         </div>
                     </div>
+
+                    <!-- 1. Sección Inicio (Hero) -->
+                    <div class="text-center space-y-4 py-8 border-b border-gray-800/60">
+                        <span class="text-xs uppercase tracking-widest bg-gray-900 border border-gray-800 text-gray-300 px-3 py-1 rounded-full">Next-Gen Ecosystem</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Custom Discord Bots & Web Apps</h2>
+                        <p class="text-gray-400 text-sm max-w-lg mx-auto">Soluciones profesionales adaptadas a lo que tu comunidad y proyecto necesitan.</p>
+                    </div>
+
+                    <!-- 2. Sección Features -->
+                    <div class="space-y-4 py-4 border-b border-gray-800/60">
+                        <h3 class="text-base font-bold text-white">Características Principales</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-cardbg p-4 rounded-xl border border-gray-800 space-y-1">
+                                <h4 class="text-xs font-bold text-white">Automatización de Discord</h4>
+                                <p class="text-xs text-gray-400">Sistemas de tickets avanzados y moderación inteligente.</p>
+                            </div>
+                            <div class="bg-cardbg p-4 rounded-xl border border-gray-800 space-y-1">
+                                <h4 class="text-xs font-bold text-white">Paneles Web Seguros</h4>
+                                <p class="text-xs text-gray-400">Diseños modernos y minimalistas orientados al rendimiento.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Sección Precios -->
+                    <div class="space-y-4 py-4 border-b border-gray-800/60">
+                        <h3 class="text-base font-bold text-white">Planes y Precios Activos</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-cardbg p-4 rounded-xl border border-gray-800 space-y-2">
+                                <span class="text-[10px] bg-gray-800 text-gray-300 px-2 py-0.5 rounded">Básico</span>
+                                <div class="text-xl font-bold text-white">$15</div>
+                                <p class="text-xs text-gray-400">Discord o Web estándar.</p>
+                            </div>
+                            <div class="bg-cardbg p-4 rounded-xl border border-gray-800 space-y-2">
+                                <span class="text-[10px] bg-gray-800 text-gray-300 px-2 py-0.5 rounded">Personalizado</span>
+                                <div class="text-xl font-bold text-white">$35</div>
+                                <p class="text-xs text-gray-400">Mayor nivel de detalle.</p>
+                            </div>
+                            <div class="bg-[#151824] p-4 rounded-xl border border-white/30 space-y-2">
+                                <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded font-bold">FULL CUSTOM</span>
+                                <div class="text-xl font-bold text-white">$50</div>
+                                <p class="text-xs text-gray-400">Discord + Web Custom total.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Sección Términos y Condiciones Completa -->
+                    <div class="space-y-4 pt-2">
+                        <h3 class="text-base font-bold text-white">Términos y Condiciones del Servicio</h3>
+                        <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-3 text-xs text-gray-400 leading-relaxed">
+                            <p><strong>1. Aceptación de los Términos:</strong> Al contratar, acceder o utilizar los servicios, bots de Discord y paneles web desarrollados por Zyrex, el cliente acepta cumplir estrictamente con los presentes términos y condiciones generales.</p>
+                            <p><strong>2. Uso del Software:</strong> Los accesos a las herramientas y desarrollos son de carácter personal e intransferible. Queda prohibida la reventa o distribución no autorizada del software bajo pena de suspensión del servicio.</p>
+                            <p><strong>3. Soporte y Desarrollo:</strong> Todo software personalizado se entrega bajo los estándares acordados en el momento de la compra. Las modificaciones fuera de rango requerirán una cotización específica según el nivel adquirido.</p>
+                            <p><strong>4. Reembolsos:</strong> Debido a la naturaleza digital del desarrollo de software y entrega de código fuente o despliegue de bots, no se realizan reembolsos una vez iniciado o finalizado el trabajo de desarrollo.</p>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="safari-viewport overflow-y-auto px-4 py-6 flex-1 space-y-6 bg-[#0a0a0c] text-left">
-                    <div class="space-y-3">
-                        <div class="flex items-center space-x-2">
-                            <span class="text-2xl font-black font-gothic metallic-z">Z</span>
-                            <span class="text-xs bg-gray-800 text-gray-300 px-2 py-0.5 rounded-full font-semibold border border-gray-700 lowercase">zyrex mobile</span>
-                        </div>
-                        <h2 class="text-lg font-bold text-white leading-snug">Best Web & Discord Developer.</h2>
-                        <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-gray-950 text-xs font-semibold px-4 py-2 rounded-lg">
-                            Join Discord ↗
-                        </a>
-                    </div>
-                    <hr class="border-gray-800">
-                    <div class="space-y-4">
-                        <h3 class="text-sm font-bold text-white">Pricing Plans</h3>
-                        <div class="bg-cardbg p-3.5 rounded-xl border border-gray-800 space-y-2">
-                            <div class="flex justify-between items-center"><span class="text-xs font-semibold bg-gray-800 text-gray-300 px-2 py-0.5 rounded">Básico</span><span class="text-sm font-bold text-white">$15</span></div>
-                        </div>
-                        <div class="bg-cardbg p-3.5 rounded-xl border border-gray-800 space-y-2">
-                            <div class="flex justify-between items-center"><span class="text-xs font-semibold bg-gray-800 text-gray-300 px-2 py-0.5 rounded">Personalizado</span><span class="text-sm font-bold text-white">$35</span></div>
-                        </div>
-                        <div class="bg-cardbg p-3.5 rounded-xl border border-gray-600 space-y-2 relative">
-                            <div class="absolute -top-2.5 right-3 bg-gray-700 text-white text-[8px] font-bold px-2 py-0.5 rounded-full uppercase">Full Custom</div>
-                            <div class="flex justify-between items-center"><span class="text-xs font-semibold bg-gray-800 text-gray-300 px-2 py-0.5 rounded">Discord + Web</span><span class="text-sm font-bold text-white">$50</span></div>
-                        </div>
-                    </div>
-                    <hr class="border-gray-800">
-                    <div class="space-y-3 pb-4">
-                        <h3 class="text-sm font-bold text-white">Client Feedback</h3>
-                        <div class="flex gap-2">
-                            <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white text-center text-[10px] font-medium py-2 rounded-lg transition">Discord ↗</a>
-                            <button onclick="toggleMobilePanel()" class="flex-1 bg-gray-800 text-white text-center text-[10px] font-medium py-2 rounded-lg border border-gray-700 cursor-pointer">Dejar Web</button>
-                        </div>
-                        <div id="mobile-feedback-panel" style="display: none;" class="bg-cardbg p-3 rounded-xl border border-gray-800 space-y-2 mt-2">
-                            <input type="text" id="mobileNombreInput" maxlength="30" placeholder="Nombre (máx 30)" class="w-full px-2 py-1.5 bg-[#1f2026] border border-gray-700 rounded text-[11px] text-white">
-                            <textarea id="mobileComentarioInput" maxlength="150" rows="2" placeholder="Opinión (máx 150)..." class="w-full px-2 py-1.5 bg-[#1f2026] border border-gray-700 rounded text-[11px] text-white"></textarea>
-                            <button onclick="agregarReseñaMobile()" class="w-full bg-gray-700 hover:bg-gray-600 text-white text-[10px] font-bold py-1.5 rounded transition cursor-pointer">Publicar</button>
-                        </div>
-                        <div id="mobileListaReviews" class="space-y-2 mt-2"></div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
-    <section id="features" class="max-w-6xl mx-auto px-6 py-16">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Core Features & Architecture</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-cardbg/80 backdrop-blur border border-gray-800 rounded-2xl p-6">
-                <h3 class="text-lg font-bold text-white mb-2">Custom Discord Bots</h3>
-                <p class="text-gray-400 text-sm">Tickets, verificación, economía y conexiones seguras por API.</p>
-            </div>
-            <div class="bg-cardbg/80 backdrop-blur border border-gray-800 rounded-2xl p-6">
-                <h3 class="text-lg font-bold text-white mb-2">Web Development</h3>
-                <p class="text-gray-400 text-sm">Diseño oscuro minimalista, Tailwind y rendimiento extremo.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing -->
+    <!-- Pricing Real de la Página Principal -->
     <section id="pricing" class="max-w-6xl mx-auto px-6 py-20">
         <div class="text-center mb-16">
             <span class="text-xs uppercase tracking-widest text-gray-400 font-semibold">— P R O D U C T S —</span>
@@ -317,234 +318,120 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <!-- TARJETA 1 -->
-            <div class="bg-cardbg border border-[#1e2029] rounded-2xl p-8 flex flex-col justify-between relative shadow-2xl transition hover:border-[#2a2d3d]">
+            <div class="bg-cardbg border border-[#1e2029] rounded-2xl p-8 flex flex-col justify-between shadow-2xl">
                 <div>
-                    <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase tracking-wider">Básico</div>
-                    <div class="text-4xl font-extrabold text-white mb-4">$15 <span class="text-xs font-normal text-gray-400">/ individual</span></div>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6 min-h-[50px]">Ideal para empezar: un servidor de Discord con su bot normal/básico O una página web funcional estándar.</p>
-                    <div class="h-px bg-[#1e2029] mb-6"></div>
-                    <ul class="space-y-3.5 text-sm text-gray-300 mb-8">
-                        <li>✓ Discord con Bot Normal</li>
-                        <li>✓ O Página Web Funcional Normal</li>
-                        <li>✓ Soporte Estándar</li>
-                    </ul>
+                    <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase">Básico</div>
+                    <div class="text-4xl font-extrabold text-white mb-4">$15</div>
+                    <p class="text-gray-400 text-sm mb-6">Discord con Bot Normal o Página Web Funcional Estándar.</p>
                 </div>
-                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="w-full bg-[#1a1c26] hover:bg-[#232634] border border-[#2a2d3d] text-white font-semibold py-3.5 rounded-xl transition text-center text-sm block">Contact on Discord ↗</a>
+                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="w-full bg-[#1a1c26] hover:bg-[#232634] text-white font-semibold py-3.5 rounded-xl text-center text-sm block">Contact on Discord ↗</a>
             </div>
-
-            <!-- TARJETA 2 -->
-            <div class="bg-cardbg border border-[#1e2029] rounded-2xl p-8 flex flex-col justify-between relative shadow-2xl transition hover:border-[#2a2d3d]">
+            <div class="bg-cardbg border border-[#1e2029] rounded-2xl p-8 flex flex-col justify-between shadow-2xl">
                 <div>
-                    <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase tracking-wider">Personalizado</div>
-                    <div class="text-4xl font-extrabold text-white mb-4">$35 <span class="text-xs font-normal text-gray-400">/ c/u</span></div>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6 min-h-[50px]">Para proyectos que buscan algo mejor, con un diseño y funciones con mayor personalización (Discord o Web).</p>
-                    <div class="h-px bg-[#1e2029] mb-6"></div>
-                    <ul class="space-y-3.5 text-sm text-gray-300 mb-8">
-                        <li>✓ Más Personalización (Discord o Web)</li>
-                        <li>✓ Diseño Moderno y Detallado</li>
-                        <li>✓ Funciones Avanzadas</li>
-                    </ul>
+                    <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase">Personalizado</div>
+                    <div class="text-4xl font-extrabold text-white mb-4">$35</div>
+                    <p class="text-gray-400 text-sm mb-6">Más personalización, diseño detallado y funciones avanzadas.</p>
                 </div>
-                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="w-full bg-[#1a1c26] hover:bg-[#232634] border border-[#2a2d3d] text-white font-semibold py-3.5 rounded-xl transition text-center text-sm block">Contact on Discord ↗</a>
+                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="w-full bg-[#1a1c26] hover:bg-[#232634] text-white font-semibold py-3.5 rounded-xl text-center text-sm block">Contact on Discord ↗</a>
             </div>
-
-            <!-- TARJETA 3 -->
-            <div class="bg-[#14161f] border border-[#2a2d3d] rounded-2xl p-8 flex flex-col justify-between relative shadow-2xl transition">
-                <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-[#2a2d3d] to-[#1a1c26] border border-[#3a3f55] text-white text-[11px] font-bold px-3.5 py-1 rounded-full uppercase tracking-widest shadow-md">FULL CUSTOM</div>
+            <div class="bg-[#14161f] border border-[#2a2d3d] rounded-2xl p-8 flex flex-col justify-between shadow-2xl relative">
+                <div class="absolute -top-3.5 right-6 bg-[#2a2d3d] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase">FULL CUSTOM</div>
                 <div>
-                    <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase tracking-wider">Discord + Web Custom</div>
-                    <div class="text-4xl font-extrabold text-white mb-4">$50 <span class="text-xs font-normal text-gray-400">/ paquete total</span></div>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6 min-h-[50px]">¡Llévate ambos! Discord y Web completamente personalizados 100% a tu gusto total.</p>
-                    <div class="h-px bg-[#2a2d3d] mb-6"></div>
-                    <ul class="space-y-3.5 text-sm text-gray-300 mb-8">
-                        <li>✓ Discord Personalizado a Medida</li>
-                        <li>✓ Web Profesional Custom</li>
-                        <li>✓ Atención VIP Prioritaria</li>
-                    </ul>
+                    <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase">Discord + Web</div>
+                    <div class="text-4xl font-extrabold text-white mb-4">$50</div>
+                    <p class="text-gray-400 text-sm mb-6">Discord y Web completamente personalizados 100% a tu medida.</p>
                 </div>
-                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="w-full bg-white hover:bg-gray-200 text-gray-950 font-bold py-3.5 rounded-xl transition text-center text-sm block shadow-lg">Order on Discord ↗</a>
+                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="w-full bg-white hover:bg-gray-200 text-gray-950 font-bold py-3.5 rounded-xl text-center text-sm block shadow-lg">Order on Discord ↗</a>
             </div>
         </div>
     </section>
 
-    <!-- Feedback -->
-    <section id="feedback" class="max-w-6xl mx-auto px-6 py-16 border-t border-gray-800/40">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Customer Feedback & Reviews</h2>
-            <p class="text-gray-400 text-sm mt-2">¿Ya contrataste nuestros servicios? Déjanos tu opinión de la forma que prefieras.</p>
+    <!-- Sección de Términos y Condiciones Globales -->
+    <section id="terms" class="max-w-4xl mx-auto px-6 py-16 border-t border-gray-800/40">
+        <div class="text-center mb-8">
+            <span class="text-xs uppercase tracking-widest text-white font-semibold">— LEGAL —</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Términos y Condiciones del Servicio</h2>
+            <p class="text-gray-400 text-sm mt-1">Conoce las normativas y políticas de desarrollo de Zyrex.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
-            <div class="bg-cardbg/80 backdrop-blur border border-gray-800 rounded-2xl p-8 text-center space-y-4">
-                <h3 class="text-lg font-bold text-white">Discord Community</h3>
-                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-medium px-6 py-3 rounded-xl text-sm">Ir al Servidor de Discord ↗</a>
+        <div class="bg-cardbg border border-gray-800 p-8 rounded-2xl space-y-6 text-sm text-gray-300 leading-relaxed shadow-xl">
+            <div class="space-y-2">
+                <h3 class="text-white font-bold text-base flex items-center space-x-2">
+                    <span class="text-white">01.</span> <span>Aceptación de los Términos</span>
+                </h3>
+                <p class="text-gray-400 text-xs md:text-sm pl-5">Al contratar, acceder o utilizar los servicios, bots de Discord y paneles web desarrollados por Zyrex, el cliente acepta cumplir estrictamente con los presentes términos y condiciones generales.</p>
             </div>
 
-            <div class="bg-cardbg/80 backdrop-blur border border-gray-800 rounded-2xl p-8 text-center space-y-4">
-                <h3 class="text-lg font-bold text-white">Enviar Feedback en la Web</h3>
-                <button onclick="toggleWebPanel()" class="inline-block bg-gray-800 hover:bg-gray-700 text-white font-medium px-6 py-3 rounded-xl text-sm cursor-pointer border border-gray-700">Escribir Reseña Web ↗</button>
-
-                <div id="web-feedback-panel" style="display: none;" class="mt-4 pt-4 border-t border-gray-800 text-left space-y-3">
-                    <input type="text" id="webNombreInput" maxlength="40" placeholder="Tu Nombre (máx 40)" class="w-full px-3 py-2 bg-[#0a0a0c] border border-gray-700 rounded-lg text-sm text-white">
-                    <textarea id="webComentarioInput" maxlength="300" rows="3" placeholder="¿Qué te pareció nuestro servicio? (máx 300)" class="w-full px-3 py-2 bg-[#0a0a0c] border border-gray-700 rounded-lg text-sm text-white"></textarea>
-                    <button onclick="agregarReseñaWeb()" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2.5 rounded-lg text-sm transition cursor-pointer">Publicar Opinión</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="max-w-2xl mx-auto mt-12 space-y-4" id="webListaReviews">
-            <h3 class="text-lg font-bold text-white text-center mb-6">Opiniones Recientes</h3>
-        </div>
-    </section>
-
-    <!-- Sección de Términos y Condiciones -->
-    <section id="terms" class="max-w-4xl mx-auto px-6 py-24 border-t border-gray-800/80 text-left">
-        <div class="bg-cardbg border border-gray-800 rounded-3xl p-8 md:p-12 space-y-6 shadow-2xl relative">
-            <div class="flex justify-between items-center border-b border-gray-800 pb-4">
-                <div>
-                    <span class="text-xs uppercase tracking-widest text-gray-400 font-semibold">Legal & Policies</span>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Términos y Condiciones</h2>
-                </div>
-                <a href="#hero" class="bg-gray-800 hover:bg-gray-700 text-white text-xs font-semibold px-4 py-2 rounded-xl border border-gray-700 transition">Volver a Home ↗</a>
+            <div class="space-y-2">
+                <h3 class="text-white font-bold text-base flex items-center space-x-2">
+                    <span class="text-white">02.</span> <span>Uso del Software</span>
+                </h3>
+                <p class="text-gray-400 text-xs md:text-sm pl-5">Los accesos a las herramientas y desarrollos son de carácter personal e intransferible. Queda prohibida la reventa o distribución no autorizada del software bajo pena de suspensión del servicio.</p>
             </div>
 
-            <div class="space-y-4 text-sm text-gray-400 leading-relaxed">
-                <p><strong>1. Aceptación de los Términos:</strong> Al contratar o utilizar los servicios de Zyrex, aceptas cumplir y estar sujeto a estos términos y condiciones de software y desarrollo web.</p>
-                
-                <p><strong>2. Pagos y Reembolsos:</strong> Todos los pagos realizados por bots personalizados o páginas web se efectúan por adelantado o según el acuerdo establecido en nuestro servidor de Discord oficial. No se realizan reembolsos una vez que el desarrollo o la configuración avanzada del proyecto ha comenzado.</p>
-                
-                <p><strong>3. Propiedad y Uso:</strong> Los códigos y estructuras entregados son para el uso exclusivo del cliente adquiriente. Queda prohibida su reventa o distribución no autorizada bajo penalización de suspensión de soporte técnico.</p>
-                
-                <p><strong>4. Soporte y Cambios:</strong> El soporte incluido abarca el correcto funcionamiento inicial del producto acordado. Modificaciones estructurales adicionales fuera de lo pactado requerirán un presupuesto extra.</p>
+            <div class="space-y-2">
+                <h3 class="text-white font-bold text-base flex items-center space-x-2">
+                    <span class="text-white">03.</span> <span>Soporte y Desarrollo</span>
+                </h3>
+                <p class="text-gray-400 text-xs md:text-sm pl-5">Todo software personalizado se entrega bajo los estándares acordados en el momento de la compra. Las modificaciones fuera de rango requerirán una cotización específica según el nivel adquirido.</p>
             </div>
 
-            <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
-                <span class="text-xs text-gray-500">Última actualización: 2026</span>
-                <a href="#hero" class="text-white text-xs font-bold hover:underline">Ir arriba ↑</a>
+            <div class="space-y-2">
+                <h3 class="text-white font-bold text-base flex items-center space-x-2">
+                    <span class="text-white">04.</span> <span>Políticas de Reembolso</span>
+                </h3>
+                <p class="text-gray-400 text-xs md:text-sm pl-5">Debido a la naturaleza digital del desarrollo de software y entrega de código fuente o despliegue de bots, no se realizan reembolsos una vez iniciado o finalizado el trabajo de desarrollo.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-800/60 mt-24 bg-[#070709]/95 backdrop-blur-md pt-16 pb-12">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-10">
-            <div class="md:col-span-5 space-y-4 text-left">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gray-800 to-gray-950 border border-gray-700 flex items-center justify-center shadow">
-                        <span class="text-white font-black text-lg tracking-tighter font-gothic">Z</span>
-                    </div>
-                    <div><span class="text-base font-extrabold text-white block">Zyrex</span><span class="text-[9px] text-gray-500 tracking-widest uppercase">Platform</span></div>
-                </div>
-                <p class="text-gray-400 text-xs md:text-sm leading-relaxed max-w-sm">Private software development platform built around custom Discord automation and high-end web access.</p>
+    <!-- Feedback & Community Real -->
+    <section id="feedback" class="max-w-6xl mx-auto px-6 py-20 border-t border-gray-800/40">
+        <div class="text-center mb-16">
+            <span class="text-xs uppercase tracking-widest text-white font-semibold">— COMMUNITY —</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Customer Feedback</h2>
+            <p class="text-gray-400 text-sm mt-2">Lo que opinan nuestros clientes acerca de nuestros bots y desarrollo web.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
+            <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-4 shadow-xl">
+                <div class="flex items-center space-x-1 text-amber-400 text-sm">★★★★★</div>
+                <p class="text-gray-300 text-sm leading-relaxed">"El bot de Discord quedó increíble, superó lo que pedí y la web funciona de maravilla sin ningún fallo."</p>
+                <div class="text-xs font-semibold text-gray-400">— Alex R. <span class="text-indigo-400 font-normal">(Cliente Full Custom)</span></div>
+            </div>
+            <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-4 shadow-xl">
+                <div class="flex items-center space-x-1 text-amber-400 text-sm">★★★★★</div>
+                <p class="text-gray-300 text-sm leading-relaxed">"Excelente atención y rapidez. Los diseños minimalistas y formales le dan un toque muy profesional."</p>
+                <div class="text-xs font-semibold text-gray-400">— Lucas M. <span class="text-emerald-400 font-normal">(Cliente VIP)</span></div>
+            </div>
+            <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-4 shadow-xl">
+                <div class="flex items-center space-x-1 text-amber-400 text-sm">★★★★★</div>
+                <p class="text-gray-300 text-sm leading-relaxed">"Muy recomendado. El diseño dark mode le da un toque único y formal a los proyectos."</p>
+                <div class="text-xs font-semibold text-gray-400">— Drixel <span class="text-cyan-400 font-normal">(Desarrollador Partner)</span></div>
             </div>
         </div>
-        <div class="max-w-6xl mx-auto px-6 pt-10 border-t border-gray-800/60 mt-12 text-xs text-gray-500 text-center md:text-left">
-            &copy; 2026 ZYREX. ALL RIGHTS RESERVED.
+
+        <div class="text-center">
+            <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-800 hover:bg-gray-700 text-white font-medium px-8 py-3.5 rounded-xl text-sm transition shadow-lg">Únete a nuestro Discord para más opiniones ↗</a>
         </div>
+    </section>
+
+    <footer class="border-t border-gray-800/60 mt-20 bg-[#070709] py-10 text-center text-xs text-gray-500">
+        &copy; 2026 ZYREX. ALL RIGHTS RESERVED.
     </footer>
 
     <script>
-        // Control de tiempo anti-spam para envíos (Cooldown de 5 segundos)
-        let ultimoEnvio = 0;
-
-        function validarYCrearReseña(nombreId, comentarioId, listaId) {
-            const ahora = Date.now();
-            if (ahora - ultimoEnvio < 5000) {
-                alert('Por favor espera unos segundos antes de enviar otra reseña.');
-                return false;
-            }
-
-            const nombreInput = document.getElementById(nombreId);
-            const comInput = document.getElementById(comentarioId);
-            
-            const nombre = nombreInput.value.trim();
-            const com = comInput.value.trim();
-
-            if (!nombre || !com) {
-                alert('Por favor completa todos los campos.');
-                return false;
-            }
-
-            if (nombre.length > 40 || com.length > 300) {
-                alert('El texto excede el límite permitido.');
-                return false;
-            }
-
-            // Sanitización y renderizado seguro usando textContent (Evita XSS al 100%)
-            const contenedorLista = document.getElementById(listaId);
-            const tarjeta = document.createElement('div');
-            tarjeta.className = listaId === 'webListaReviews' 
-                ? 'bg-cardbg/80 border border-gray-800 p-4 rounded-xl space-y-2' 
-                : 'bg-cardbg p-2.5 rounded-lg border border-gray-800 text-[10px] space-y-1';
-
-            const headerDiv = document.createElement('div');
-            if (listaId === 'webListaReviews') {
-                headerDiv.className = 'flex justify-between items-center';
-                const nombreSpan = document.createElement('span');
-                nombreSpan.className = 'font-bold text-white text-sm';
-                nombreSpan.textContent = nombre;
-                
-                const fechaSpan = document.createElement('span');
-                fechaSpan.className = 'text-xs text-gray-500';
-                fechaSpan.textContent = 'Hace un momento';
-                
-                headerDiv.appendChild(nombreSpan);
-                headerDiv.appendChild(fechaSpan);
-            } else {
-                const nombreStrong = document.createElement('strong');
-                nombreStrong.className = 'text-white';
-                nombreStrong.textContent = nombre;
-                headerDiv.appendChild(nombreStrong);
-            }
-
-            const textoP = document.createElement('p');
-            textoP.className = listaId === 'webListaReviews' ? 'text-gray-300 text-sm' : 'text-gray-400';
-            textoP.textContent = com;
-
-            tarjeta.appendChild(headerDiv);
-            tarjeta.appendChild(textoP);
-            contenedorLista.prepend(tarjeta);
-
-            nombreInput.value = '';
-            comInput.value = '';
-            ultimoEnvio = ahora;
-            return true;
-        }
-
-        function agregarReseñaMobile() {
-            if(validarYCrearReseña('mobileNombreInput', 'mobileComentarioInput', 'mobileListaReviews')) {
-                document.getElementById('mobile-feedback-panel').style.display = 'none';
-            }
-        }
-
-        function agregarReseñaWeb() {
-            if(validarYCrearReseña('webNombreInput', 'webComentarioInput', 'webListaReviews')) {
-                document.getElementById('web-feedback-panel').style.display = 'none';
-            }
-        }
-
-        function toggleMobilePanel() {
-            const panel = document.getElementById('mobile-feedback-panel');
-            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-        }
-
-        function toggleWebPanel() {
-            const panel = document.getElementById('web-feedback-panel');
-            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-        }
-
-        // Celular 3D Tilt seguro
-        const phone = document.getElementById('phone3d');
-        const phoneContainer = document.querySelector('.phone-container');
-        phoneContainer.addEventListener('mousemove', (e) => {
-            const rect = phoneContainer.getBoundingClientRect();
+        // Efecto Tilt 3D
+        const mac = document.getElementById('mac3d');
+        const macContainer = document.querySelector('.mac-container');
+        macContainer.addEventListener('mousemove', (e) => {
+            const rect = macContainer.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
-            phone.style.transform = `rotateX(${-y / 12}deg) rotateY(${x / 12}deg) scale(1.02)`;
+            mac.style.transform = `rotateX(${-y / 20}deg) rotateY(${x / 20}deg) scale(1.01)`;
         });
-        phoneContainer.addEventListener('mouseleave', () => {
-            phone.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+        macContainer.addEventListener('mouseleave', () => {
+            mac.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
         });
     </script>
 </body>
