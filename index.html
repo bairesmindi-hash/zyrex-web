@@ -166,7 +166,6 @@
                 <a href="#hero" class="hover:text-white transition">Home</a>
                 <a href="#mac-showcase" class="hover:text-white transition">Live Web Preview</a>
                 <a href="#pricing" class="hover:text-white transition">Pricing</a>
-                <a href="#feedback" class="hover:text-white transition">Feedback</a>
                 <a href="#terms" class="hover:text-white transition">Terms</a>
             </nav>
             <div class="flex items-center space-x-3">
@@ -437,7 +436,6 @@
             notesInput.value = '';
 
             if (planName === 'Básico') {
-                // Elige o Web o Bot estándar
                 dynamicModule.innerHTML = `
                     <label class="block text-xs font-semibold text-gray-300">¿Qué deseas elegir para este plan? *</label>
                     <select id="choiceType" class="w-full bg-[#0a0a0c] border border-gray-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-gray-600 transition">
@@ -454,7 +452,6 @@
                 notesInput.placeholder = "ej. Nombre del bot o color de la web...";
             } 
             else if (planName === 'Personalizado') {
-                // Elige 1 personalizado, el otro estándar
                 dynamicModule.innerHTML = `
                     <label class="block text-xs font-semibold text-gray-300">¿Qué elemento deseas hacer PERSONALIZADO? (El otro será estándar) *</label>
                     <select id="choiceType" class="w-full bg-[#0a0a0c] border border-gray-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-gray-600 transition">
@@ -470,8 +467,7 @@
                 notesLabel.innerText = "Describe los detalles específicos del elemento que elegiste personalizar: *";
                 notesInput.placeholder = "ej. Elegí la web personalizada: quiero que tenga diseño oscuro minimalista, sección de portfolio y contacto.";
             } 
-            else { // FULL CUSTOM
-                // Los 2 personalizados
+            else { 
                 dynamicModule.innerHTML = `
                     <div class="bg-[#0a0a0c] border border-gray-800 rounded-xl p-3 text-xs text-indigo-300">
                         ✨ Este plan incluye <strong>ambos elementos (Bot + Web)</strong> 100% personalizados a tu medida.
@@ -505,10 +501,15 @@
             document.getElementById('checkoutModal').classList.add('hidden');
         }
 
+        // ==========================================
+        // WEBHOOK DE DISCORD CONFIGURADO
+        // ==========================================
+        const DISCORD_WEBHOOK_URL = "https://canary.discord.com/api/webhooks/1555354421708324905/-13-24DkO5RquI-8VpAzHKxkLScSfeMX5jqhE6HV2ckcRakcrNnSt-Vva2t5X2dSetek";
+
         function submitOrderToDiscord(event) {
             event.preventDefault();
             const discordUser = document.getElementById('discordUser').value;
-            const orderNotes = document.getElementById('orderNotes').value;
+            const orderNotes = document.getElementById('orderNotes').value || "Sin notas adicionales";
             const choiceSelect = document.getElementById('choiceType');
             const specificChoice = choiceSelect ? choiceSelect.value : 'Ambos Personalizados (Bot + Web)';
 
@@ -521,13 +522,31 @@
 
             document.getElementById('generatedCodeDisplay').innerText = finalOrderCode;
 
-            console.log("=== NUEVO PEDIDO ZYREX ===");
-            console.log("Código:", finalOrderCode);
-            console.log("Cliente:", discordUser);
-            console.log("Plan:", selectedPlan, "($" + selectedPrice + ")");
-            console.log("Elección Específica:", specificChoice);
-            console.log("Notas/Detalles:", orderNotes);
-            console.log("==========================");
+            // Estructura del mensaje (Embed) que llegará a tu canal de Discord
+            const payload = {
+                embeds: [{
+                    title: "🛒 ¡NUEVO PEDIDO RECIBIDO EN LA WEB!",
+                    color: 1146986, 
+                    fields: [
+                        { name: "🏷️ Código de Pedido", value: `\`${finalOrderCode}\``, inline: true },
+                        { name: "📦 Plan Seleccionado", value: `**${selectedPlan}** ($${selectedPrice} USD)`, inline: true },
+                        { name: "👤 Cliente de Discord", value: discordUser, inline: false },
+                        { name: "⚡ Elección / Módulo", value: specificChoice, inline: false },
+                        { name: "📝 Notas / Detalles del Cliente", value: orderNotes, inline: false }
+                    ],
+                    footer: {
+                        text: "Zyrex Software Bot System • 2026"
+                    },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            // Enviar los datos directamente al canal de Discord
+            fetch(DISCORD_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).catch(err => console.error("Error al enviar al webhook:", err));
             
             document.getElementById('step1').classList.add('hidden');
             document.getElementById('step2').classList.remove('hidden');
