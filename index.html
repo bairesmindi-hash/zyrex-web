@@ -184,11 +184,14 @@
                 <a href="#feedback" class="hover:text-white transition">Feedback</a>
                 <a href="#terms" class="hover:text-white transition text-gray-300 font-semibold">Terms</a>
             </nav>
-            <div>
-                <a href="https://discord.gg/ZNB28sEBW2" target="_blank" rel="noopener noreferrer" class="bg-cardbg/80 border border-gray-800 hover:border-gray-700 text-sm font-medium px-4 py-2 rounded-lg transition flex items-center space-x-2 shadow-sm backdrop-blur">
-                    <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.011c3.927 1.793 8.18 1.793 12.061 0a0.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a0.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a0.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                    <span>Discord</span>
-                </a>
+            <div class="flex items-center space-x-3">
+                <!-- Botón de Discord del Navbar (Modificado para mostrar login o usuario) -->
+                <div id="nav-auth-container">
+                    <a href="/api/login" class="bg-cardbg/80 border border-gray-800 hover:border-gray-700 text-sm font-medium px-4 py-2 rounded-lg transition flex items-center space-x-2 shadow-sm backdrop-blur text-gray-300">
+                        <svg class="w-4 h-4 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.011c3.927 1.793 8.18 1.793 12.061 0a0.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a0.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a0.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                        <span>Discord Login</span>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -226,6 +229,12 @@
                 <a href="#feedback" class="bg-cardbg/80 border border-gray-800 hover:border-gray-700 text-white font-medium px-6 py-3 rounded-xl transition text-sm backdrop-blur">
                     Leave Feedback
                 </a>
+                <!-- Enlace al panel secreto de Staff (Aparece solo si eres Admin) -->
+                <div id="panel-link" style="display: none;" class="w-full">
+                    <a href="/staff.html" class="inline-block bg-sky-600 hover:bg-sky-500 text-white font-bold px-6 py-3 rounded-xl transition text-sm shadow-lg border border-sky-400">
+                        🔑 Ir al Panel de Staff / Autorizados
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -546,6 +555,31 @@
         phoneContainer.addEventListener('mouseleave', () => {
             phone.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
         });
+
+        // ==========================================
+        // SCRIPT DE DISCORD & SUPABASE AGREGADO AQUÍ
+        // ==========================================
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        const username = getCookie('discord_user');
+        const role = getCookie('discord_role');
+
+        if (username) {
+            document.getElementById('nav-auth-container').innerHTML = `
+                <div class="flex items-center space-x-3 bg-cardbg/80 border border-gray-800 px-3 py-1.5 rounded-lg shadow-sm backdrop-blur">
+                    <span class="text-xs text-gray-300">Hola, <strong class="text-indigo-400">${username}</strong></span>
+                    <a href="/" onclick="document.cookie='discord_user=; Max-Age=0; path=/'; document.cookie='discord_role=; Max-Age=0; path=/';" class="text-[11px] text-red-400 hover:underline">Salir</a>
+                </div>
+            `;
+        }
+
+        if (role === 'admin' || role === 'staff') {
+            document.getElementById('panel-link').style.display = 'block';
+        }
     </script>
 </body>
 </html>
