@@ -443,32 +443,53 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <div class="bg-[#080c14] border border-sky-950 rounded-2xl p-8 flex flex-col justify-between shadow-2xl">
+            <!-- Plan 1: Basic ($15 -> $7 | -53%) -->
+            <div class="bg-[#080c14] border border-sky-950 rounded-2xl p-8 flex flex-col justify-between shadow-2xl relative">
                 <div>
-                    <div class="bg-[#0e1726] text-sky-300 text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase border border-sky-950" data-i18n="plan-1-badge">Basic</div>
-                    <div class="text-4xl font-extrabold text-white mb-4">$15</div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-[#0e1726] text-sky-300 text-xs font-semibold px-3 py-1.5 rounded-md uppercase border border-sky-950" data-i18n="plan-1-badge">Basic</div>
+                        <span class="text-rose-400 text-xs font-bold bg-rose-950/50 px-2 py-0.5 rounded border border-rose-900/40">-53%</span>
+                    </div>
+                    <div class="mb-4 flex items-baseline space-x-3">
+                        <span class="text-gray-500 line-through text-lg font-bold">$15 USD</span>
+                        <div class="text-4xl font-extrabold text-white">$7 <span class="text-xs text-sky-400 font-normal">USD</span></div>
+                    </div>
                     <p class="text-gray-300 text-sm mb-6" data-i18n="plan-1-desc">Choose <strong>either a standard Web or a standard Bot</strong> quickly.</p>
                 </div>
-                <button onclick="openCheckout('Basic', 15)" class="w-full bg-[#0d162c] hover:bg-[#13203f] text-white font-semibold py-3.5 rounded-xl text-center text-sm block cursor-pointer transition border border-sky-900/50" data-i18n="btn-buy">Buy Plan ↗</button>
+                <button onclick="openCheckout('Basic', 7)" class="w-full bg-[#0d162c] hover:bg-[#13203f] text-white font-semibold py-3.5 rounded-xl text-center text-sm block cursor-pointer transition border border-sky-900/50" data-i18n="btn-buy">Buy Plan ↗</button>
             </div>
             
-            <div class="bg-[#080c14] border border-sky-950 rounded-2xl p-8 flex flex-col justify-between shadow-2xl">
+            <!-- Plan 2: Custom ($35 -> $15 | -57%) -->
+            <div class="bg-[#080c14] border border-sky-950 rounded-2xl p-8 flex flex-col justify-between shadow-2xl relative">
                 <div>
-                    <div class="bg-[#0e1726] text-sky-300 text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase border border-sky-950" data-i18n="plan-2-badge">Custom</div>
-                    <div class="text-4xl font-extrabold text-white mb-4">$35</div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-[#0e1726] text-sky-300 text-xs font-semibold px-3 py-1.5 rounded-md uppercase border border-sky-950" data-i18n="plan-2-badge">Custom</div>
+                        <span class="text-rose-400 text-xs font-bold bg-rose-950/50 px-2 py-0.5 rounded border border-rose-900/40">-57%</span>
+                    </div>
+                    <div class="mb-4 flex items-baseline space-x-3">
+                        <span class="text-gray-500 line-through text-lg font-bold">$35 USD</span>
+                        <div class="text-4xl font-extrabold text-white">$15 <span class="text-xs text-sky-400 font-normal">USD</span></div>
+                    </div>
                     <p class="text-gray-300 text-sm mb-6" data-i18n="plan-2-desc">Choose <strong>1 custom element</strong> (bot or web) and the other is standard.</p>
                 </div>
-                <button onclick="openCheckout('Custom', 35)" class="w-full bg-[#0d162c] hover:bg-[#13203f] text-white font-semibold py-3.5 rounded-xl text-center text-sm block cursor-pointer transition border border-sky-900/50" data-i18n="btn-buy">Buy Plan ↗</button>
+                <button onclick="openCheckout('Custom', 15)" class="w-full bg-[#0d162c] hover:bg-[#13203f] text-white font-semibold py-3.5 rounded-xl text-center text-sm block cursor-pointer transition border border-sky-900/50" data-i18n="btn-buy">Buy Plan ↗</button>
             </div>
             
+            <!-- Plan 3: FULL CUSTOM (Discord + Web) ($50 -> $20 | -60%) -->
             <div class="bg-[#0a101d] border border-sky-900/60 rounded-2xl p-8 flex flex-col justify-between shadow-2xl relative">
                 <div class="absolute -top-3.5 right-6 bg-sky-500 text-gray-950 text-[11px] font-bold px-3 py-1 rounded-full uppercase shadow-lg" data-i18n="plan-3-ribbon">FULL CUSTOM</div>
                 <div>
-                    <div class="bg-[#0e1726] text-sky-300 text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase border border-sky-950" data-i18n="plan-3-badge">Discord + Web</div>
-                    <div class="text-4xl font-extrabold text-white mb-4">$50</div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-[#0e1726] text-sky-300 text-xs font-semibold px-3 py-1.5 rounded-md uppercase border border-sky-950" data-i18n="plan-3-badge">Discord + Web</div>
+                        <span class="text-rose-400 text-xs font-bold bg-rose-950/50 px-2 py-0.5 rounded border border-rose-900/40">-60%</span>
+                    </div>
+                    <div class="mb-4 flex items-baseline space-x-3">
+                        <span class="text-gray-500 line-through text-lg font-bold">$50 USD</span>
+                        <div class="text-4xl font-extrabold text-white">$20 <span class="text-xs text-sky-400 font-normal">USD</span></div>
+                    </div>
                     <p class="text-gray-300 text-sm mb-6" data-i18n="plan-3-desc"><strong>Both custom (Bot + Web)</strong> 100% tailored to you.</p>
                 </div>
-                <button onclick="openCheckout('FULL CUSTOM (Discord + Web)', 50)" class="w-full bg-sky-500 hover:bg-sky-400 text-gray-950 font-bold py-3.5 rounded-xl text-center text-sm block shadow-lg shadow-sky-500/20 cursor-pointer transition" data-i18n="btn-buy">Buy Plan ↗</button>
+                <button onclick="openCheckout('FULL CUSTOM (Discord + Web)', 20)" class="w-full bg-sky-500 hover:bg-sky-400 text-gray-950 font-bold py-3.5 rounded-xl text-center text-sm block shadow-lg shadow-sky-500/20 cursor-pointer transition" data-i18n="btn-buy">Buy Plan ↗</button>
             </div>
         </div>
     </section>
@@ -723,7 +744,7 @@
                 advert: { title: "📢 | advert", desc: "| Официальные объявления и обновления", messages: [{ user: "Asia", bot: false, color: "text-sky-300", time: "Сегодня", text: "📢 **НОВОЕ ОБНОВЛЕНИЕ БОТА V2.4**\nМы внедрили новые системы умной модерации." }] },
                 changelog: { title: "💻 | changelog", desc: "| История изменений и улучшений", messages: [{ user: "Momsy", bot: false, color: "text-sky-400", time: "Сегодня", text: "📝 **ИСТОРИЯ ИЗМЕНЕНИЙ - v2.4.1**\n• Оптимизация базы данных.\n• Исправление ошибок." }] },
                 term: { title: "📄 | term", desc: "| Условия использования", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Сегодня", text: "📄 **УСЛОВИЯ ZYREX**\nВзаимное уважение и лицензии." }] },
-                web: { title: "🌐 | web", desc: "| Прямые ссылки на наш сайт", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Сегодня", text: "🌐 **ОФИЦИАЛЬНЫЙ ВЕБ-ПАНЕЛЬ**\n👉 `https://zyrex.app`" }] },
+                web: { title: "🌐 | web", desc: "| Прямые ссылки на наш сайт", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Сегодня", text: "🌐 **ОФИЦИАЛЬНАЯ ВЕБ-ПАНЕЛЬ**\n👉 `https://zyrex.app`" }] },
                 feedback: { title: "✅ | feedback", desc: "| Отзывы клиентов", messages: [{ user: "ClientVIP", bot: false, color: "text-emerald-400", time: "Сегодня", text: "⭐ Отличный сервис и поддержка 10/10!" }] },
                 media: { title: "🎬 | media", desc: "| Клипы и демонстрации", messages: [{ user: "Momsy", bot: false, color: "text-sky-400", time: "Сегодня", text: "🎬 Видеопрезентация наших работ." }] },
                 ticket: { title: "🎫 | ticket", desc: "| Автоматизированная система поддержки", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Сегодня", text: "🎫 **ПОДДЕРЖКА ZYREX**\nНужна помощь? Откройте тикет ниже.\n\n`[ 📩 Создать тикет ]`" }] }
