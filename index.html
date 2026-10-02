@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +12,10 @@
             theme: {
                 extend: {
                     colors: {
-                        darkbg: '#0a0a0c',
-                        cardbg: '#121318',
-                        accent: '#a1a1aa',
-                        accenthover: '#d4d4d8'
+                        darkbg: '#03050a',
+                        cardbg: '#080c14',
+                        accent: '#38bdf8',
+                        accenthover: '#7dd3fc'
                     }
                 }
             }
@@ -29,7 +29,10 @@
 
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #050507;
+            background-color: #020408;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(14, 30, 60, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(8, 20, 45, 0.5) 0%, transparent 50%);
             overflow-x: hidden;
         }
 
@@ -61,18 +64,18 @@
 
         @keyframes floatSymbol {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(1deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
         }
 
         .light-blob-1 {
             position: absolute;
             top: -100px;
             left: 5%;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(140, 140, 180, 0.02) 45%, transparent 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(30, 90, 160, 0.15) 0%, rgba(15, 45, 90, 0.05) 50%, transparent 75%);
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(90px);
             z-index: -1;
             animation: floatLight1 14s ease-in-out infinite;
             pointer-events: none;
@@ -82,11 +85,11 @@
             position: absolute;
             top: 30%;
             right: 2%;
-            width: 650px;
-            height: 650px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, rgba(100, 100, 100, 0.02) 50%, transparent 75%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(20, 70, 140, 0.12) 0%, rgba(10, 30, 70, 0.04) 50%, transparent 75%);
             border-radius: 50%;
-            filter: blur(100px);
+            filter: blur(110px);
             z-index: -1;
             animation: floatLight2 18s ease-in-out infinite;
             pointer-events: none;
@@ -96,11 +99,11 @@
             position: absolute;
             top: 65%;
             left: 15%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, rgba(80, 80, 80, 0.02) 45%, transparent 70%);
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(25, 80, 150, 0.1) 0%, rgba(10, 35, 75, 0.03) 45%, transparent 70%);
             border-radius: 50%;
-            filter: blur(95px);
+            filter: blur(100px);
             z-index: -1;
             animation: floatLight3 16s ease-in-out infinite;
             pointer-events: none;
@@ -108,24 +111,17 @@
 
         .metallic-z-container {
             animation: floatSymbol 4s ease-in-out infinite;
-            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8));
-        }
-
-        .metallic-z {
-            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 30%, #52525b 50%, #d4d4d8 70%, #27272a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 2px 4px 15px rgba(255, 255, 255, 0.15);
+            filter: drop-shadow(0 25px 50px rgba(56, 189, 248, 0.4));
         }
         
         .discord-scroll::-webkit-scrollbar {
             width: 6px;
         }
         .discord-scroll::-webkit-scrollbar-track {
-            background: #090a0c;
+            background: #030508;
         }
         .discord-scroll::-webkit-scrollbar-thumb {
-            background: #1e2028;
+            background: #111a2e;
             border-radius: 4px;
         }
 
@@ -141,79 +137,84 @@
 
         .card-glow {
             position: absolute; inset: 0; border-radius: 1.5rem; pointer-events: none;
-            background: radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.08), transparent 70%);
+            background: radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.08), transparent 70%);
             z-index: 2;
         }
     </style>
 </head>
-<body class="text-gray-100 min-h-screen selection:bg-gray-700 selection:text-white relative">
+<body class="text-gray-100 min-h-screen selection:bg-sky-900 selection:text-white relative">
 
-    <!-- Luces de Fondo Dinámicas -->
     <div class="light-blob-1"></div>
     <div class="light-blob-2"></div>
     <div class="light-blob-3"></div>
 
     <!-- Navbar Principal -->
-    <header class="border-b border-gray-800/40 sticky top-0 z-40 bg-[#050507]/80 backdrop-blur-md">
+    <header class="border-b border-sky-900/30 sticky top-0 z-40 bg-[#020408]/85 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between py-3">
             <a href="#hero" class="flex items-center space-x-3.5 group">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-800 to-gray-950 border border-gray-700 flex items-center justify-center shadow-lg group-hover:border-gray-500 transition">
-                    <span class="text-white font-black text-xl tracking-tighter font-gothic">Z</span>
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0a1528] to-[#020408] border border-sky-900/50 flex items-center justify-center shadow-lg group-hover:border-sky-500/50 transition">
+                    <span class="text-xl font-black font-gothic text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-200 to-sky-400">Z</span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-lg font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400 lowercase">
-                        Z<span class="text-white">yrex</span><span class="text-gray-400">.</span>
+                    <span class="text-lg font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-100 to-sky-300 lowercase">
+                        Z<span class="text-white">yrex</span><span class="text-sky-400">.</span>
                     </span>
-                    <span class="text-[8px] text-gray-500 tracking-widest uppercase font-medium">Software</span>
+                    <span class="text-[8px] text-sky-400/80 tracking-widest uppercase font-medium" data-i18n="nav-software">Software</span>
                 </div>
             </a>
 
-            <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
-                <a href="#hero" class="hover:text-white transition">Home</a>
-                <a href="#mac-showcase" class="hover:text-white transition">Discord Preview</a>
-                <a href="#pricing" class="hover:text-white transition">Pricing</a>
-                <a href="#terms" class="hover:text-white transition">Terms</a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+                <a href="#hero" class="hover:text-sky-300 transition" data-i18n="nav-home">Home</a>
+                <a href="#mac-showcase" class="hover:text-sky-300 transition" data-i18n="nav-preview">Discord Preview</a>
+                <a href="#pricing" class="hover:text-sky-300 transition" data-i18n="nav-pricing">Pricing</a>
+                <a href="#terms" class="hover:text-sky-300 transition" data-i18n="nav-terms">Terms</a>
             </nav>
             <div class="flex items-center space-x-3">
-                <!-- Botón de YouTube agregado al lado del de Discord -->
-                <a href="https://www.youtube.com/@Zyrexshop" target="_blank" rel="noopener noreferrer" class="bg-[#121318] border border-gray-700 hover:border-gray-500 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition cursor-pointer shadow-lg flex items-center space-x-2">
+                <!-- Selector de Idiomas (Solo EN y RU) -->
+                <div class="relative">
+                    <select id="langSelect" class="bg-[#080c14] border border-sky-900/50 hover:border-sky-500/50 text-sky-300 text-xs font-semibold px-3 py-2.5 rounded-xl transition cursor-pointer shadow-lg focus:outline-none appearance-none pr-7">
+                        <option value="en" class="bg-[#080c14] text-white">EN</option>
+                        <option value="ru" class="bg-[#080c14] text-white">RU</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-sky-400 text-[10px]">
+                        ▼
+                    </div>
+                </div>
+
+                <a href="https://www.youtube.com/@Zyrexshop" target="_blank" rel="noopener noreferrer" class="bg-[#080c14] border border-sky-900/50 hover:border-sky-500/50 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition cursor-pointer shadow-lg flex items-center space-x-2">
                     <span>YouTube</span><span>↗</span>
                 </a>
-                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-gray-200 text-gray-950 font-semibold text-sm px-5 py-2.5 rounded-xl transition cursor-pointer shadow-lg">Discord</a>
+                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="bg-sky-500 hover:bg-sky-400 text-gray-950 font-bold text-sm px-5 py-2.5 rounded-xl transition cursor-pointer shadow-lg shadow-sky-500/20">Discord</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section con Tarjetas de Perfil 3D -->
+    <!-- Hero Section -->
     <section id="hero" class="max-w-6xl mx-auto px-6 pt-20 pb-16 relative">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div class="lg:col-span-7 space-y-6 text-left">
+                <!-- Z MUCHO MÁS GRANDE Y FLOTANTE -->
                 <div class="flex items-center space-x-6">
                     <div class="metallic-z-container inline-block">
-                        <span class="text-7xl md:text-9xl font-black font-gothic metallic-z tracking-tighter block select-none">Z</span>
+                        <span class="text-8xl md:text-9xl font-black font-gothic text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-200 to-sky-400 drop-shadow-[0_20px_40px_rgba(56,189,248,0.6)]">Z</span>
                     </div>
                 </div>
-                <div class="flex items-center space-x-3">
-                    <span class="text-xl md:text-3xl font-extrabold text-white tracking-tight">Best Web & Discord Developer</span>
-                    <span class="text-xs font-semibold bg-gray-900/80 text-gray-200 px-3 py-1 rounded-full border border-gray-700 backdrop-blur shadow-inner">
-                        Software
-                    </span>
-                </div>
+
                 <div class="space-y-3">
-                    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.1] text-white">
+                    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.1] text-white" data-i18n="hero-title">
                         Custom software built around web control and exclusive features.
                     </h1>
-                    <p class="text-gray-400 text-sm md:text-base leading-relaxed font-light max-w-xl">
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed font-light max-w-xl" data-i18n="hero-desc">
                         We craft high-end custom Discord bots and modern web apps that give your project a unique, modern, and professional edge.
                     </p>
                 </div>
                 <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="#pricing" class="bg-white hover:bg-gray-100 text-gray-950 font-bold px-7 py-3.5 rounded-xl transition shadow-lg flex items-center space-x-2 text-sm">
-                        <span>View Pricing</span><span>↗</span>
+                    <a href="#pricing" class="bg-sky-500 hover:bg-sky-400 text-gray-950 font-bold px-7 py-3.5 rounded-xl transition shadow-lg shadow-sky-500/20 flex items-center space-x-2 text-sm">
+                        <span data-i18n="btn-pricing">View Pricing</span><span>↗</span>
                     </a>
-                    <a href="#mac-showcase" class="bg-[#121318] border border-gray-700 hover:border-gray-500 text-white font-medium px-7 py-3.5 rounded-xl transition text-sm shadow-md flex items-center space-x-2">
-                        <span>Ver Servidor Discord Simulado</span><span>↗</span>
+                    <a href="#mac-showcase" class="bg-[#080c14] border border-sky-900/50 hover:border-sky-500/50 text-white font-medium px-7 py-3.5 rounded-xl transition text-sm shadow-md flex items-center space-x-2">
+                        <span data-i18n="btn-discord">View Simulated Discord Server</span><span>↗</span>
                     </a>
                 </div>
             </div>
@@ -222,57 +223,57 @@
             <div class="lg:col-span-5 flex flex-col items-center cards-wrapper py-6 space-y-4">
                 
                 <!-- Tarjeta Asia -->
-                <div class="floating-card w-full max-w-sm bg-[#121318]/95 border border-gray-700/80 rounded-3xl p-5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md relative overflow-hidden group cursor-pointer">
+                <div class="floating-card w-full max-w-sm bg-[#080c14]/95 border border-sky-950 rounded-3xl p-5 shadow-[0_25px_50px_-12px_rgba(2,6,23,0.9)] backdrop-blur-md relative overflow-hidden group cursor-pointer">
                     <div class="card-glow"></div>
-                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-sky-500/10 rounded-full blur-2xl pointer-events-none"></div>
                     
                     <div class="flex items-center space-x-4 relative z-10">
                         <div class="relative flex-shrink-0">
-                            <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-gray-600 shadow-xl bg-gradient-to-tr from-purple-900 via-indigo-950 to-slate-900 flex items-center justify-center relative">
-                                <svg class="w-10 h-10 text-indigo-300 transform scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-sky-900/65 shadow-xl bg-gradient-to-tr from-[#0a1528] via-[#050b14] to-[#020408] flex items-center justify-center relative">
+                                <svg class="w-10 h-10 text-sky-400 transform scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
-                                    <path d="M12 11l2 2 4-4" stroke="#a5b4fc" stroke-width="1.5"></path>
+                                    <path d="M12 11l2 2 4-4" stroke="#7dd3fc" stroke-width="1.5"></path>
                                 </svg>
                             </div>
-                            <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#ED4245] border-2 border-[#121318] rounded-full flex items-center justify-center shadow-md pointer-events-none">
+                            <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#ED4245] border-2 border-[#080c14] rounded-full flex items-center justify-center shadow-md pointer-events-none">
                                 <div class="w-1.5 h-0.5 bg-white rounded-full"></div>
                             </div>
                         </div>
                         <div class="flex items-center justify-between w-full min-w-0">
                             <div class="flex flex-col">
                                 <span class="text-white font-bold text-base tracking-tight truncate">Asia</span>
-                                <span class="text-[11px] text-gray-400">Project Leader</span>
+                                <span class="text-[11px] text-sky-300/75" data-i18n="role-leader">Project Leader</span>
                             </div>
-                            <span class="bg-[#1a1c26] border border-gray-600 text-yellow-400 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm">OWNER</span>
+                            <span class="bg-[#0e1726] border border-sky-900/50 text-sky-400 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm" data-i18n="badge-owner">OWNER</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tarjeta Momsy -->
-                <div class="floating-card w-full max-w-sm bg-[#121318]/95 border border-gray-700/80 rounded-3xl p-5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md relative overflow-hidden group cursor-pointer">
+                <div class="floating-card w-full max-w-sm bg-[#080c14]/95 border border-sky-950 rounded-3xl p-5 shadow-[0_25px_50px_-12px_rgba(2,6,23,0.9)] backdrop-blur-md relative overflow-hidden group cursor-pointer">
                     <div class="card-glow"></div>
-                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
                     
                     <div class="flex items-center space-x-4 relative z-10">
                         <div class="relative flex-shrink-0">
-                            <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-gray-600 shadow-xl bg-gradient-to-tr from-cyan-950 via-blue-950 to-slate-900 flex items-center justify-center relative">
-                                <svg class="w-10 h-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-sky-900/65 shadow-xl bg-gradient-to-tr from-[#0a1528] via-[#050b14] to-[#020408] flex items-center justify-center relative">
+                                <svg class="w-10 h-10 text-sky-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="16 18 22 12 16 6"></polyline>
                                     <polyline points="8 6 2 12 8 18"></polyline>
                                     <line x1="14" y1="4" x2="10" y2="20"></line>
                                 </svg>
                             </div>
-                            <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#ED4245] border-2 border-[#121318] rounded-full flex items-center justify-center shadow-md pointer-events-none">
+                            <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#ED4245] border-2 border-[#080c14] rounded-full flex items-center justify-center shadow-md pointer-events-none">
                                 <div class="w-1.5 h-0.5 bg-white rounded-full"></div>
                             </div>
                         </div>
                         <div class="flex items-center justify-between w-full min-w-0">
                             <div class="flex flex-col">
                                 <span class="text-white font-bold text-base tracking-tight truncate">Momsy</span>
-                                <span class="text-[11px] text-gray-400">Lead Developer</span>
+                                <span class="text-[11px] text-sky-300/75" data-i18n="role-dev">Lead Developer</span>
                             </div>
-                            <span class="bg-[#1a1c26] border border-gray-600 text-cyan-400 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm">DEV</span>
+                            <span class="bg-[#0e1726] border border-sky-900/50 text-sky-300 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm" data-i18n="badge-dev">DEV</span>
                         </div>
                     </div>
                 </div>
@@ -282,164 +283,148 @@
         </div>
     </section>
 
-    <!-- Sección MacBook con Discord Simulado en Negro Puro y Ultra Mejorado -->
+    <!-- Sección MacBook con Discord Simulado -->
     <section id="mac-showcase" class="max-w-5xl mx-auto px-6 py-20 relative">
-        <!-- Efecto de luz ambiental exclusivo para la laptop -->
-        <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-cyan-500/10 blur-3xl pointer-events-none -z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-tr from-sky-950/20 via-blue-900/10 to-indigo-950/20 blur-3xl pointer-events-none -z-10"></div>
 
         <div class="text-center mb-12 space-y-3">
-            <span class="text-xs uppercase tracking-widest text-indigo-400 font-semibold">— DISCORD BOT SHOWCASE —</span>
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Explora el servidor y las funciones de nuestros bots</h2>
-            <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto font-light">Haz clic en cada canal de la izquierda para ver qué tareas realiza automáticamente cada bot en tiempo real.</p>
+            <span class="text-xs uppercase tracking-widest text-sky-400 font-semibold" data-i18n="showcase-tag">— DISCORD BOT SHOWCASE —</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight" data-i18n="showcase-title">Explore our server and bot features</h2>
+            <p class="text-gray-300 text-sm md:text-base max-w-xl mx-auto font-light" data-i18n="showcase-desc">Click on each channel on the left to see what tasks each bot performs automatically in real time.</p>
         </div>
 
         <div class="flex justify-center mac-container relative">
-            <!-- Resplandor exterior mejorado -->
-            <div class="absolute -inset-1.5 bg-gradient-to-r from-indigo-600/30 via-purple-600/20 to-blue-600/30 rounded-[2.5rem] blur-xl opacity-70 pointer-events-none"></div>
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-sky-600/20 via-blue-700/20 to-indigo-600/20 rounded-[2.5rem] blur-xl opacity-70 pointer-events-none"></div>
 
-            <div id="mac3d" class="floating-mac w-full max-w-[980px] bg-[#07080a] border border-gray-800/90 rounded-3xl shadow-[0_30px_100px_rgba(0,0,0,0.9)] relative overflow-hidden flex flex-col">
+            <div id="mac3d" class="floating-mac w-full max-w-[980px] bg-[#03050a] border border-sky-950 rounded-3xl shadow-[0_30px_100px_rgba(2,6,23,0.9)] relative overflow-hidden flex flex-col">
                 
-                <!-- Barra superior simulando macOS con diseño refinado en negro -->
-                <div class="bg-[#050608] px-5 py-3.5 border-b border-gray-800/80 flex items-center justify-between">
+                <div class="bg-[#020408] px-5 py-3.5 border-b border-sky-950 flex items-center justify-between">
                     <div class="flex space-x-2">
                         <div class="w-3 h-3 rounded-full bg-[#FF5F56] shadow-inner"></div>
                         <div class="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-inner"></div>
                         <div class="w-3 h-3 rounded-full bg-[#27C93F] shadow-inner"></div>
                     </div>
-                    <div class="text-xs text-gray-400 font-mono tracking-wider flex items-center space-x-2 bg-[#0d0e12] px-3.5 py-1 rounded-full border border-gray-800 shadow-inner">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span class="text-gray-200">Discord App - Zyrex Community</span>
+                    <div class="text-xs text-gray-300 font-mono tracking-wider flex items-center space-x-2 bg-[#080d1a] px-3.5 py-1 rounded-full border border-sky-950 shadow-inner">
+                        <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                        <span class="text-sky-200">Discord App - Zyrex Community</span>
                     </div>
                     <div class="w-4"></div>
                 </div>
 
-                <!-- Interfaz de Discord (Negro Puro OLED / Estilo Premium) -->
-                <div class="flex h-[600px] bg-[#090a0d] text-gray-200 text-left select-none relative overflow-hidden">
+                <div class="flex h-[600px] bg-[#050810] text-gray-200 text-left select-none relative overflow-hidden">
                     
-                    <!-- Marca de agua elegante al fondo del chat -->
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.025] select-none z-0">
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] select-none z-0">
                         <span class="text-[280px] font-black font-gothic text-white">Z</span>
                     </div>
 
-                    <!-- Columna 1: Servidores (Iconos en negro profundo) -->
-                    <div class="w-[72px] bg-[#050608] py-3.5 flex flex-col items-center space-y-3.5 border-r border-[#121318] flex-shrink-0 z-10 shadow-lg">
+                    <!-- Columna 1: Servidores -->
+                    <div class="w-[72px] bg-[#03050a] py-3.5 flex flex-col items-center space-y-3.5 border-r border-[#0a1222] flex-shrink-0 z-10 shadow-lg">
                         <div class="w-12 h-12 rounded-3xl hover:rounded-2xl bg-[#5865F2] text-white flex items-center justify-center font-bold transition-all duration-200 cursor-pointer shadow-lg hover:shadow-indigo-500/40">
                             💬
                         </div>
-                        <div class="w-8 h-[2px] bg-[#1a1b22] rounded"></div>
-                        <div class="w-12 h-12 rounded-3xl hover:rounded-2xl bg-[#0f1014] hover:bg-[#5865F2] text-white flex items-center justify-center font-bold transition-all duration-200 cursor-pointer border border-gray-800/80">
+                        <div class="w-8 h-[2px] bg-[#0d162c] rounded"></div>
+                        <div class="w-12 h-12 rounded-3xl hover:rounded-2xl bg-[#080c16] hover:bg-[#5865F2] text-white flex items-center justify-center font-bold transition-all duration-200 cursor-pointer border border-sky-950">
                             <span class="font-gothic font-black text-sm">Z</span>
                         </div>
-                        <div class="w-12 h-12 rounded-3xl hover:rounded-2xl bg-[#0f1014] hover:bg-emerald-500 text-white flex items-center justify-center font-bold transition-all duration-200 cursor-pointer text-xs border border-gray-800/80 shadow-inner">
+                        <div class="w-12 h-12 rounded-3xl hover:rounded-2xl bg-[#080c16] hover:bg-sky-500 text-white flex items-center justify-center font-bold transition-all duration-200 cursor-pointer text-xs border border-sky-950 shadow-inner">
                             +
                         </div>
                     </div>
 
-                    <!-- Columna 2: Lista de Canales en Negro Absoluto -->
-                    <div class="w-64 bg-[#0c0d10] flex flex-col flex-shrink-0 border-r border-[#121318] z-10 shadow-md">
-                        <div class="h-12 border-b border-[#121318] px-4 flex items-center justify-between font-bold text-white shadow-sm text-sm bg-[#0c0d10]">
+                    <!-- Columna 2: Canales -->
+                    <div class="w-64 bg-[#060a14] flex flex-col flex-shrink-0 border-r border-[#0a1222] z-10 shadow-md">
+                        <div class="h-12 border-b border-[#0a1222] px-4 flex items-center justify-between font-bold text-white shadow-sm text-sm bg-[#060a14]">
                             <span class="truncate">Zyrex Official</span>
-                            <span class="text-xs text-gray-500">▼</span>
+                            <span class="text-xs text-sky-400">▼</span>
                         </div>
                         
                         <div class="discord-scroll flex-1 overflow-y-auto px-2 py-3 space-y-4 text-xs">
-                            
-                            <!-- Categoría 1: Zyrex -->
                             <div>
-                                <div class="text-[10px] font-bold text-gray-500 px-2 mb-1 tracking-wider uppercase flex items-center justify-between">
+                                <div class="text-[10px] font-bold text-sky-400/70 px-2 mb-1 tracking-wider uppercase flex items-center justify-between">
                                     <span>Zyrex ▾</span>
                                     <span>+</span>
                                 </div>
                                 <div class="space-y-0.5">
-                                    <button onclick="switchChannel('verify', '🔒 | verify')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#14151a] text-gray-400 hover:text-gray-200 flex items-center space-x-2 transition">
-                                        <span class="text-gray-500 font-bold">#</span>
+                                    <button onclick="switchChannel('verify', '🔒 | verify')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#0c152a] text-gray-300 hover:text-white flex items-center space-x-2 transition">
+                                        <span class="text-sky-400 font-bold">#</span>
                                         <span class="truncate">🔒 | verify</span>
                                     </button>
                                 </div>
                             </div>
 
-                            <!-- Categoría 2: Zyrex | Info -->
                             <div>
-                                <div class="text-[10px] font-bold text-gray-500 px-2 mb-1 tracking-wider uppercase flex items-center justify-between">
+                                <div class="text-[10px] font-bold text-sky-400/70 px-2 mb-1 tracking-wider uppercase flex items-center justify-between">
                                     <span>Zyrex | Info ▾</span>
                                     <span>+</span>
                                 </div>
                                 <div class="space-y-0.5">
-                                    <button onclick="switchChannel('advert', '📢 | advert')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#14151a] text-gray-400 hover:text-gray-200 flex items-center space-x-2 transition">
-                                        <span class="text-gray-500 font-bold">#</span>
+                                    <button onclick="switchChannel('advert', '📢 | advert')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#0c152a] text-gray-300 hover:text-white flex items-center space-x-2 transition">
+                                        <span class="text-sky-400 font-bold">#</span>
                                         <span class="truncate">📢 | advert</span>
                                     </button>
-                                    <button onclick="switchChannel('changelog', '💻 | changelog')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#14151a] text-gray-400 hover:text-gray-200 flex items-center space-x-2 transition">
-                                        <span class="text-gray-500 font-bold">#</span>
+                                    <button onclick="switchChannel('changelog', '💻 | changelog')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#0c152a] text-gray-300 hover:text-white flex items-center space-x-2 transition">
+                                        <span class="text-sky-400 font-bold">#</span>
                                         <span class="truncate">💻 | changelog</span>
                                     </button>
-                                    <button onclick="switchChannel('term', '📄 | term')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#14151a] text-gray-400 hover:text-gray-200 flex items-center space-x-2 transition">
-                                        <span class="text-gray-500 font-bold">#</span>
+                                    <button onclick="switchChannel('term', '📄 | term')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#0c152a] text-gray-300 hover:text-white flex items-center space-x-2 transition">
+                                        <span class="text-sky-400 font-bold">#</span>
                                         <span class="truncate">📄 | term</span>
                                     </button>
-                                    <button onclick="switchChannel('web', '🌐 | web')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#14151a] text-gray-400 hover:text-gray-200 flex items-center space-x-2 transition">
-                                        <span class="text-gray-500 font-bold">#</span>
+                                    <button onclick="switchChannel('web', '🌐 | web')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#0c152a] text-gray-300 hover:text-white flex items-center space-x-2 transition">
+                                        <span class="text-sky-400 font-bold">#</span>
                                         <span class="truncate">🌐 | web</span>
                                     </button>
                                 </div>
                             </div>
 
-                            <!-- Categoría 3: Comunidad / Soporte -->
                             <div>
-                                <div class="text-[10px] font-bold text-gray-500 px-2 mb-1 tracking-wider uppercase flex items-center justify-between">
+                                <div class="text-[10px] font-bold text-sky-400/70 px-2 mb-1 tracking-wider uppercase flex items-center justify-between">
                                     <span>Zyrex ▾</span>
                                     <span>+</span>
                                 </div>
                                 <div class="space-y-0.5">
-                                    <button onclick="switchChannel('feedback', '✅ | feedback')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#14151a] text-gray-400 hover:text-gray-200 flex items-center space-x-2 transition">
-                                        <span class="text-gray-500 font-bold">#</span>
+                                    <button onclick="switchChannel('feedback', '✅ | feedback')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#0c152a] text-gray-300 hover:text-white flex items-center space-x-2 transition">
+                                        <span class="text-sky-400 font-bold">#</span>
                                         <span class="truncate">✅ | feedback</span>
                                     </button>
-                                    <button onclick="switchChannel('media', '🎬 | media')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#14151a] text-gray-400 hover:text-gray-200 flex items-center space-x-2 transition">
-                                        <span class="text-gray-500 font-bold">#</span>
+                                    <button onclick="switchChannel('media', '🎬 | media')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#0c152a] text-gray-300 hover:text-white flex items-center space-x-2 transition">
+                                        <span class="text-sky-400 font-bold">#</span>
                                         <span class="truncate">🎬 | media</span>
                                     </button>
-                                    <button onclick="switchChannel('ticket', '🎫 | ticket')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#16181f] text-white font-medium flex items-center space-x-2 transition shadow-inner border border-gray-800/60">
-                                        <span class="text-gray-400 font-bold">#</span>
+                                    <button onclick="switchChannel('ticket', '🎫 | ticket')" class="channel-btn w-full text-left px-2.5 py-1.5 rounded hover:bg-[#0f1d38] text-white font-medium flex items-center space-x-2 transition shadow-inner border border-sky-900/50">
+                                        <span class="text-sky-400 font-bold">#</span>
                                         <span class="truncate">🎫 | ticket</span>
                                     </button>
                                 </div>
                             </div>
-
                         </div>
 
-                        <!-- Perfil inferior de usuario en negro -->
-                        <div class="h-14 bg-[#08090b] px-3 flex items-center justify-between border-t border-[#121318]">
+                        <div class="h-14 bg-[#04060d] px-3 flex items-center justify-between border-t border-[#0a1222]">
                             <div class="flex items-center space-x-2.5">
-                                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center font-bold text-xs text-white shadow-md">Z</div>
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-600 to-blue-800 flex items-center justify-center font-bold text-xs text-white shadow-md">Z</div>
                                 <div class="flex flex-col">
                                     <span class="text-xs font-bold text-white leading-tight">ZyrexBot#0001</span>
-                                    <span class="text-[10px] text-emerald-400 font-medium">Online & Ready</span>
+                                    <span class="text-[10px] text-sky-400 font-medium" data-i18n="bot-status">Online & Ready</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Columna 3: Área Principal de Chat en Negro OLED -->
-                    <div class="flex-1 bg-[#090a0d] flex flex-col min-w-0 z-10 relative">
-                        <!-- Header del canal activo -->
-                        <div class="h-12 border-b border-[#121318] px-4 flex items-center space-x-2 shadow-sm flex-shrink-0 bg-[#090a0d]/95 backdrop-blur">
-                            <span class="text-xl text-gray-500 font-light">#</span>
+                    <!-- Columna 3: Chat Principal -->
+                    <div class="flex-1 bg-[#050810] flex flex-col min-w-0 z-10 relative">
+                        <div class="h-12 border-b border-[#0a1222] px-4 flex items-center space-x-2 shadow-sm flex-shrink-0 bg-[#050810]/95 backdrop-blur">
+                            <span class="text-xl text-sky-400 font-light">#</span>
                             <span id="activeChannelTitle" class="font-bold text-white text-sm">🎫 | ticket</span>
-                            <span class="text-xs text-gray-500 ml-2 hidden md:inline truncate" id="activeChannelDesc">| Sistema automatizado de soporte y atención al cliente</span>
+                            <span class="text-xs text-gray-400 ml-2 hidden md:inline truncate" id="activeChannelDesc">| Automated support and customer service system</span>
                         </div>
 
-                        <!-- Contenedor de mensajes -->
-                        <div id="chatMessagesContainer" class="discord-scroll flex-1 overflow-y-auto p-4 space-y-6 text-sm">
-                            <!-- Se llena dinámicamente con JavaScript -->
-                        </div>
+                        <div id="chatMessagesContainer" class="discord-scroll flex-1 overflow-y-auto p-4 space-y-6 text-sm"></div>
 
-                        <!-- Barra de input inferior en negro profundo -->
-                        <div class="p-4 bg-[#090a0d]">
-                            <div class="bg-[#121318] rounded-xl px-4 py-3 flex items-center space-x-3 text-gray-400 text-xs border border-gray-800/80 shadow-inner">
-                                <span class="bg-[#1e2028] text-white w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px] shadow-sm">+</span>
-                                <span class="flex-1 text-gray-400">Escribe un comando para interactuar con el bot...</span>
-                                <span class="text-indigo-400 font-mono bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/25 font-bold">/help</span>
+                        <div class="p-4 bg-[#050810]">
+                            <div class="bg-[#080c16] rounded-xl px-4 py-3 flex items-center space-x-3 text-gray-400 text-xs border border-sky-950 shadow-inner">
+                                <span class="bg-[#101930] text-sky-300 w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px] shadow-sm">+</span>
+                                <span class="flex-1 text-gray-300" data-i18n="chat-input-placeholder">Type a command to interact with the bot...</span>
+                                <span class="text-sky-300 font-mono bg-sky-950/60 px-2.5 py-1 rounded-md border border-sky-900/50 font-bold">/help</span>
                             </div>
                         </div>
                     </div>
@@ -452,151 +437,323 @@
     <!-- Pricing Section -->
     <section id="pricing" class="max-w-6xl mx-auto px-6 py-20">
         <div class="text-center mb-16">
-            <span class="text-xs uppercase tracking-widest text-gray-400 font-semibold">— P R O D U C T S —</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white mt-2">Zyrex Custom Overlay and Web Control.</h2>
-            <p class="text-gray-400 text-sm mt-2">Choose the setup that matches how you want to use Zyrex.</p>
+            <span class="text-xs uppercase tracking-widest text-sky-400 font-semibold" data-i18n="pricing-tag">— P R O D U C T S —</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white mt-2" data-i18n="pricing-title">Zyrex Custom Overlay and Web Control.</h2>
+            <p class="text-gray-300 text-sm mt-2" data-i18n="pricing-desc">Choose the setup that matches how you want to use Zyrex.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <!-- Plan Básico -->
-            <div class="bg-cardbg border border-[#1e2029] rounded-2xl p-8 flex flex-col justify-between shadow-2xl">
+            <div class="bg-[#080c14] border border-sky-950 rounded-2xl p-8 flex flex-col justify-between shadow-2xl">
                 <div>
-                    <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase">Básico</div>
+                    <div class="bg-[#0e1726] text-sky-300 text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase border border-sky-950" data-i18n="plan-1-badge">Basic</div>
                     <div class="text-4xl font-extrabold text-white mb-4">$15</div>
-                    <p class="text-gray-400 text-sm mb-6">Eliges <strong>o una Web o un Bot</strong> estándar rápido.</p>
+                    <p class="text-gray-300 text-sm mb-6" data-i18n="plan-1-desc">Choose <strong>either a standard Web or a standard Bot</strong> quickly.</p>
                 </div>
-                <button onclick="openCheckout('Básico', 15)" class="w-full bg-[#1a1c26] hover:bg-[#232634] text-white font-semibold py-3.5 rounded-xl text-center text-sm block cursor-pointer transition">Comprar Plan ↗</button>
+                <button onclick="openCheckout('Basic', 15)" class="w-full bg-[#0d162c] hover:bg-[#13203f] text-white font-semibold py-3.5 rounded-xl text-center text-sm block cursor-pointer transition border border-sky-900/50" data-i18n="btn-buy">Buy Plan ↗</button>
             </div>
-            <!-- Plan Personalizado -->
-            <div class="bg-cardbg border border-[#1e2029] rounded-2xl p-8 flex flex-col justify-between shadow-2xl">
+            
+            <div class="bg-[#080c14] border border-sky-950 rounded-2xl p-8 flex flex-col justify-between shadow-2xl">
                 <div>
-                    <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase">Personalizado</div>
+                    <div class="bg-[#0e1726] text-sky-300 text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase border border-sky-950" data-i18n="plan-2-badge">Custom</div>
                     <div class="text-4xl font-extrabold text-white mb-4">$35</div>
-                    <p class="text-gray-400 text-sm mb-6">Eliges <strong>1 elemento personalizado</strong> (bot o web) y el otro va estándar.</p>
+                    <p class="text-gray-300 text-sm mb-6" data-i18n="plan-2-desc">Choose <strong>1 custom element</strong> (bot or web) and the other is standard.</p>
                 </div>
-                <button onclick="openCheckout('Personalizado', 35)" class="w-full bg-[#1a1c26] hover:bg-[#232634] text-white font-semibold py-3.5 rounded-xl text-center text-sm block cursor-pointer transition">Comprar Plan ↗</button>
+                <button onclick="openCheckout('Custom', 35)" class="w-full bg-[#0d162c] hover:bg-[#13203f] text-white font-semibold py-3.5 rounded-xl text-center text-sm block cursor-pointer transition border border-sky-900/50" data-i18n="btn-buy">Buy Plan ↗</button>
             </div>
-            <!-- Plan Full Custom -->
-            <div class="bg-[#14161f] border border-[#2a2d3d] rounded-2xl p-8 flex flex-col justify-between shadow-2xl relative">
-                <div class="absolute -top-3.5 right-6 bg-[#2a2d3d] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase">FULL CUSTOM</div>
+            
+            <div class="bg-[#0a101d] border border-sky-900/60 rounded-2xl p-8 flex flex-col justify-between shadow-2xl relative">
+                <div class="absolute -top-3.5 right-6 bg-sky-500 text-gray-950 text-[11px] font-bold px-3 py-1 rounded-full uppercase shadow-lg" data-i18n="plan-3-ribbon">FULL CUSTOM</div>
                 <div>
-                    <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase">Discord + Web</div>
+                    <div class="bg-[#0e1726] text-sky-300 text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase border border-sky-950" data-i18n="plan-3-badge">Discord + Web</div>
                     <div class="text-4xl font-extrabold text-white mb-4">$50</div>
-                    <p class="text-gray-400 text-sm mb-6"><strong>Ambos personalizados (Bot + Web)</strong> 100% a tu medida.</p>
+                    <p class="text-gray-300 text-sm mb-6" data-i18n="plan-3-desc"><strong>Both custom (Bot + Web)</strong> 100% tailored to you.</p>
                 </div>
-                <button onclick="openCheckout('FULL CUSTOM (Discord + Web)', 50)" class="w-full bg-white hover:bg-gray-200 text-gray-950 font-bold py-3.5 rounded-xl text-center text-sm block shadow-lg cursor-pointer transition">Comprar Plan ↗</button>
+                <button onclick="openCheckout('FULL CUSTOM (Discord + Web)', 50)" class="w-full bg-sky-500 hover:bg-sky-400 text-gray-950 font-bold py-3.5 rounded-xl text-center text-sm block shadow-lg shadow-sky-500/20 cursor-pointer transition" data-i18n="btn-buy">Buy Plan ↗</button>
             </div>
         </div>
     </section>
 
     <!-- Modal de Checkout Dinámico -->
-    <div id="checkoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-cardbg border border-gray-800 rounded-2xl max-w-lg w-full p-6 md:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+    <div id="checkoutModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#080c14] border border-sky-900/60 rounded-2xl max-w-lg w-full p-6 md:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="closeCheckout()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold">&times;</button>
             
             <div id="step1" class="space-y-4">
                 <div class="space-y-1">
-                    <span class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">Configura tu Pedido</span>
-                    <h3 id="modalPlanTitle" class="text-2xl font-extrabold text-white">Comprar Plan</h3>
-                    <p class="text-xs text-gray-400">Elige qué deseas y personaliza los detalles según las reglas de tu plan.</p>
+                    <span class="text-xs font-semibold text-sky-400 uppercase tracking-wider" data-i18n="modal-subtitle">Configure Your Order</span>
+                    <h3 id="modalPlanTitle" class="text-2xl font-extrabold text-white" data-i18n="modal-title">Buy Plan</h3>
+                    <p class="text-xs text-gray-300" data-i18n="modal-desc">Choose what you want and customize details according to your plan rules.</p>
                 </div>
 
                 <form onsubmit="submitOrderToDiscord(event)" class="space-y-4">
                     <div>
-                        <label class="block text-xs font-semibold text-gray-300 mb-1.5">Tu Usuario de Discord *</label>
-                        <input type="text" id="discordUser" required placeholder="ej. usuario#1234" class="w-full bg-[#0a0a0c] border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gray-600 transition">
+                        <label class="block text-xs font-semibold text-gray-300 mb-1.5" data-i18n="label-discord">Your Discord Username *</label>
+                        <input type="text" id="discordUser" required placeholder="e.g. user#1234" class="w-full bg-[#03050a] border border-sky-950 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-500 transition">
                     </div>
 
                     <div id="dynamicModuleSelection" class="space-y-2"></div>
 
                     <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300">Características incluidas en este plan:</label>
-                        <div id="featuresContainer" class="bg-[#0a0a0c] border border-gray-800 rounded-xl p-4 space-y-2 text-xs text-gray-300"></div>
+                        <label class="block text-xs font-semibold text-gray-300" data-i18n="label-features">Features included in this plan:</label>
+                        <div id="featuresContainer" class="bg-[#03050a] border border-sky-950 rounded-xl p-4 space-y-2 text-xs text-gray-300"></div>
                     </div>
 
                     <div id="customNotesContainer" class="space-y-1.5">
-                        <label id="notesLabel" class="block text-xs font-semibold text-gray-300">Detalles adicionales:</label>
-                        <textarea id="orderNotes" rows="3" placeholder="Escribe aquí..." class="w-full bg-[#0a0a0c] border border-gray-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-gray-600 transition resize-none"></textarea>
+                        <label id="notesLabel" class="block text-xs font-semibold text-gray-300" data-i18n="label-notes">Additional details:</label>
+                        <textarea id="orderNotes" rows="3" placeholder="Type here..." class="w-full bg-[#03050a] border border-sky-950 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-sky-500 transition resize-none"></textarea>
                     </div>
 
-                    <div class="bg-[#0a0a0c] border border-gray-800/80 rounded-xl p-4 space-y-2">
+                    <div class="bg-[#03050a] border border-sky-950 rounded-xl p-4 space-y-2">
                         <div class="flex justify-between text-xs text-gray-400">
-                            <span>Plan seleccionado:</span>
+                            <span data-i18n="summary-plan">Selected plan:</span>
                             <span id="summaryPlanName" class="text-white font-medium">-</span>
                         </div>
-                        <div class="flex justify-between text-sm font-bold text-white pt-2 border-t border-gray-800">
-                            <span>Total:</span>
-                            <span id="summaryPlanPrice" class="text-emerald-400">-</span>
+                        <div class="flex justify-between text-sm font-bold text-white pt-2 border-t border-sky-950">
+                            <span data-i18n="summary-total">Total:</span>
+                            <span id="summaryPlanPrice" class="text-sky-400">-</span>
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full bg-white hover:bg-gray-200 text-gray-950 font-bold py-3.5 rounded-xl text-center text-sm transition shadow-lg cursor-pointer">
-                        Siguiente (Generar Código y Enviar Pedido) ↗
+                    <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-gray-950 font-bold py-3.5 rounded-xl text-center text-sm transition shadow-lg shadow-sky-500/20 cursor-pointer" data-i18n="btn-submit">
+                        Next (Generate Code & Submit Order) ↗
                     </button>
                 </form>
             </div>
 
             <!-- Paso 2: Código de Compra -->
             <div id="step2" class="hidden space-y-4 text-center">
-                <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">✓</div>
-                <h3 class="text-xl font-extrabold text-white">¡Pedido registrado con éxito!</h3>
-                <p class="text-xs text-gray-400">Tu orden ha sido guardada. Tu código de compra único es:</p>
+                <div class="w-12 h-12 bg-sky-500/20 text-sky-400 rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">✓</div>
+                <h3 class="text-xl font-extrabold text-white" data-i18n="success-title">Order registered successfully!</h3>
+                <p class="text-xs text-gray-300" data-i18n="success-desc">Your order has been saved. Your unique purchase code is:</p>
                 
-                <div class="bg-[#070709] border border-gray-700 rounded-2xl p-4 space-y-1">
-                    <span class="text-[10px] uppercase text-gray-500 font-semibold tracking-widest">Código de Pedido</span>
-                    <div id="generatedCodeDisplay" class="text-2xl font-mono font-black text-indigo-400 tracking-wider">ZRX-XXXX</div>
+                <div class="bg-[#03050a] border border-sky-900/50 rounded-2xl p-4 space-y-1">
+                    <span class="text-[10px] uppercase text-sky-400/80 font-semibold tracking-widest" data-i18n="success-code-label">Order Code</span>
+                    <div id="generatedCodeDisplay" class="text-2xl font-mono font-black text-sky-300 tracking-wider">ZRX-XXXX</div>
                 </div>
 
-                <div class="bg-[#0a0a0c] border border-gray-800 rounded-xl p-4 text-left space-y-2 text-xs text-gray-300">
-                    <p class="font-bold text-white uppercase text-[10px]">¿Qué hacer ahora?</p>
-                    <p>1. Entra a nuestro Discord.</p>
-                    <p>2. Abre un <strong>ticket</strong> y manda este código para que el staff verifique tu selección y comience el trabajo.</p>
+                <div class="bg-[#03050a] border border-sky-950 rounded-xl p-4 text-left space-y-2 text-xs text-gray-300">
+                    <p class="font-bold text-white uppercase text-[10px]" data-i18n="success-steps-title">What to do next?</p>
+                    <p data-i18n="success-step-1">1. Join our Discord server.</p>
+                    <p data-i18n="success-step-2">2. Open a <strong>ticket</strong> and send this code so staff can verify your selection and start working.</p>
                 </div>
 
-                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3.5 rounded-xl text-center text-sm transition shadow-lg block mt-2">
-                    Ir a Discord y Abrir Ticket ↗
+                <a href="https://discord.gg/BhmZPkg3B3" target="_blank" rel="noopener noreferrer" class="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3.5 rounded-xl text-center text-sm transition shadow-lg block mt-2" data-i18n="btn-discord-ticket">
+                    Go to Discord and Open Ticket ↗
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Términos y Condiciones Completos y Profesionales -->
-    <section id="terms" class="max-w-4xl mx-auto px-6 py-16 border-t border-gray-800/40">
+    <!-- Términos y Condiciones -->
+    <section id="terms" class="max-w-4xl mx-auto px-6 py-16 border-t border-sky-950">
         <div class="text-center mb-10">
-            <span class="text-xs uppercase tracking-widest text-indigo-400 font-semibold">— LEGAL & POLÍTICAS —</span>
-            <h2 class="text-2xl md:text-4xl font-extrabold text-white mt-2">Términos y Condiciones del Servicio</h2>
-            <p class="text-gray-400 text-xs mt-2">Última actualización: 2026. Al adquirir cualquier software o servicio de Zyrex, aceptas los siguientes términos:</p>
+            <span class="text-xs uppercase tracking-widest text-sky-400 font-semibold" data-i18n="terms-tag">— LEGAL & POLICIES —</span>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-white mt-2" data-i18n="terms-title">Terms and Conditions of Service</h2>
+            <p class="text-gray-300 text-xs mt-2" data-i18n="terms-subtitle">Last updated: 2026. By purchasing any software or service from Zyrex, you agree to the following terms:</p>
         </div>
-        <div class="bg-cardbg border border-gray-800 p-8 rounded-2xl space-y-6 text-sm text-gray-300 leading-relaxed shadow-xl">
+        <div class="bg-[#080c14] border border-sky-950 p-8 rounded-2xl space-y-6 text-sm text-gray-300 leading-relaxed shadow-xl">
             <div>
-                <h3 class="text-white font-bold text-base mb-1">1. Aceptación y Ámbito del Servicio</h3>
-                <p>Al contratar servicios en Zyrex (bots personalizados, paneles web o software a medida), el cliente acepta de forma implícita los plazos, metodologías y condiciones descritas en este documento.</p>
+                <h3 class="text-white font-bold text-base mb-1" data-i18n="term-1-title">1. Acceptance and Scope of Service</h3>
+                <p data-i18n="term-1-desc">By hiring services at Zyrex (custom bots, web panels, or custom software), the client implicitly accepts the deadlines, methodologies, and conditions described in this document.</p>
             </div>
             <div>
-                <h3 class="text-white font-bold text-base mb-1">2. Pagos, Reembolsos y Cancelaciones</h3>
-                <p>Todos los pagos deben realizarse por adelantado o según el acuerdo establecido al abrir el ticket. Debido a la naturaleza digital del desarrollo de software personalizado, <strong>no se admiten reembolsos</strong> una vez que el desarrollo o la fase de código han dado inicio.</p>
+                <h3 class="text-white font-bold text-base mb-1" data-i18n="term-2-title">2. Payments, Refunds, and Cancellations</h3>
+                <p data-i18n="term-2-desc">All payments must be made in advance or according to the agreement established when opening the ticket. Due to the digital nature of custom software development, <strong>no refunds are allowed</strong> once development or code phase has begun.</p>
             </div>
             <div>
-                <h3 class="text-white font-bold text-base mb-1">3. Propiedad Intelectual y Licenciamiento</h3>
-                <p>El software entregado se otorga bajo una licencia de uso personal, comercial o comunitaria (según el plan adquirido). Queda estrictamente prohibida la reventa, redistribución o comercialización no autorizada del código fuente o de los bots propiedad de Zyrex.</p>
+                <h3 class="text-white font-bold text-base mb-1" data-i18n="term-3-title">3. Intellectual Property and Licensing</h3>
+                <p data-i18n="term-3-desc">The delivered software is granted under a personal, commercial, or community license (depending on the plan purchased). Unauthorized resale, redistribution, or commercialization of Zyrex's source code or bots is strictly prohibited.</p>
             </div>
             <div>
-                <h3 class="text-white font-bold text-base mb-1">4. Modificaciones, Revisiones y Plazos</h3>
-                <p>Las modificaciones fuera del alcance inicial acordado en el pedido podrán generar costos adicionales. Los tiempos de entrega son estimados y pueden variar según la complejidad técnica de los requerimientos del cliente.</p>
+                <h3 class="text-white font-bold text-base mb-1" data-i18n="term-4-title">4. Modifications, Revisions, and Deadlines</h3>
+                <p data-i18n="term-4-desc">Modifications outside the initial scope agreed upon in the order may incur additional costs. Delivery times are estimated and may vary depending on the technical complexity of the client's requirements.</p>
             </div>
             <div>
-                <h3 class="text-white font-bold text-base mb-1">5. Soporte Técnico y Garantía</h3>
-                <p>Zyrex ofrece soporte post-entrega para corregir errores de código (bugs) atribuibles directamente al desarrollo original dentro del período estipulado en tu plan. No nos hacemos responsables por fallas derivadas de alteraciones posteriores hechas por terceros.</p>
+                <h3 class="text-white font-bold text-base mb-1" data-i18n="term-5-title">5. Technical Support and Warranty</h3>
+                <p data-i18n="term-5-desc">Zyrex offers post-delivery support to fix code errors (bugs) directly attributable to the original development within the period stipulated in your plan. We are not responsible for failures resulting from subsequent alterations made by third parties.</p>
             </div>
         </div>
     </section>
 
-    <footer class="border-t border-gray-800/60 mt-20 bg-[#070709] py-10 text-center text-xs text-gray-500">
+    <footer class="border-t border-sky-950 mt-20 bg-[#020408] py-10 text-center text-xs text-gray-400" data-i18n="footer-copy">
         &copy; 2026 ZYREX. ALL RIGHTS RESERVED.
     </footer>
 
     <script>
-        // Efecto 3D interactivo para la Mac
+        // Diccionario de traducciones (Solo Inglés y Ruso)
+        const translations = {
+            en: {
+                "nav-software": "Software",
+                "nav-home": "Home",
+                "nav-preview": "Discord Preview",
+                "nav-pricing": "Pricing",
+                "nav-terms": "Terms",
+                "hero-title": "Custom software built around web control and exclusive features.",
+                "hero-desc": "We craft high-end custom Discord bots and modern web apps that give your project a unique, modern, and professional edge.",
+                "btn-pricing": "View Pricing",
+                "btn-discord": "View Simulated Discord Server",
+                "role-leader": "Project Leader",
+                "role-dev": "Lead Developer",
+                "badge-owner": "OWNER",
+                "badge-dev": "DEV",
+                "showcase-tag": "— DISCORD BOT SHOWCASE —",
+                "showcase-title": "Explore our server and bot features",
+                "showcase-desc": "Click on each channel on the left to see what tasks each bot performs automatically in real time.",
+                "bot-status": "Online & Ready",
+                "chat-input-placeholder": "Type a command to interact with the bot...",
+                "pricing-tag": "— P R O D U C T S —",
+                "pricing-title": "Zyrex Custom Overlay and Web Control.",
+                "pricing-desc": "Choose the setup that matches how you want to use Zyrex.",
+                "plan-1-badge": "Basic",
+                "plan-1-desc": "Choose <strong>either a standard Web or a standard Bot</strong> quickly.",
+                "plan-2-badge": "Custom",
+                "plan-2-desc": "Choose <strong>1 custom element</strong> (bot or web) and the other is standard.",
+                "plan-3-ribbon": "FULL CUSTOM",
+                "plan-3-badge": "Discord + Web",
+                "plan-3-desc": "<strong>Both custom (Bot + Web)</strong> 100% tailored to you.",
+                "btn-buy": "Buy Plan ↗",
+                "modal-subtitle": "Configure Your Order",
+                "modal-title": "Buy Plan",
+                "modal-desc": "Choose what you want and customize details according to your plan rules.",
+                "label-discord": "Your Discord Username *",
+                "label-features": "Features included in this plan:",
+                "label-notes": "Additional details:",
+                "summary-plan": "Selected plan:",
+                "summary-total": "Total:",
+                "btn-submit": "Next (Generate Code & Submit Order) ↗",
+                "success-title": "Order registered successfully!",
+                "success-desc": "Your order has been saved. Your unique purchase code is:",
+                "success-code-label": "Order Code",
+                "success-steps-title": "What to do next?",
+                "success-step-1": "1. Join our Discord server.",
+                "success-step-2": "2. Open a <strong>ticket</strong> and send this code so staff can verify your selection and start working.",
+                "btn-discord-ticket": "Go to Discord and Open Ticket ↗",
+                "terms-tag": "— LEGAL & POLICIES —",
+                "terms-title": "Terms and Conditions of Service",
+                "terms-subtitle": "Last updated: 2026. By purchasing any software or service from Zyrex, you agree to the following terms:",
+                "term-1-title": "1. Acceptance and Scope of Service",
+                "term-1-desc": "By hiring services at Zyrex (custom bots, web panels, or custom software), the client implicitly accepts the deadlines, methodologies, and conditions described in this document.",
+                "term-2-title": "2. Payments, Refunds, and Cancellations",
+                "term-2-desc": "All payments must be made in advance or according to the agreement established when opening the ticket. Due to the digital nature of custom software development, <strong>no refunds are allowed</strong> once development or code phase has begun.",
+                "term-3-title": "3. Intellectual Property and Licensing",
+                "term-3-desc": "The delivered software is granted under a personal, commercial, or community license (depending on the plan purchased). Unauthorized resale, redistribution, or commercialization of Zyrex's source code or bots is strictly prohibited.",
+                "term-4-title": "4. Modifications, Revisions, and Deadlines",
+                "term-4-desc": "Modifications outside the initial scope agreed upon in the order may incur additional costs. Delivery times are estimated and may vary depending on the technical complexity of the client's requirements.",
+                "term-5-title": "5. Technical Support and Warranty",
+                "term-5-desc": "Zyrex offers post-delivery support to fix code errors (bugs) directly attributable to the original development within the period stipulated in your plan. We are not responsible for failures resulting from subsequent alterations made by third parties.",
+                "footer-copy": "&copy; 2026 ZYREX. ALL RIGHTS RESERVED."
+            },
+            ru: {
+                "nav-software": "ПРОГРАММЫ",
+                "nav-home": "Главная",
+                "nav-preview": "Превью Discord",
+                "nav-pricing": "Цены",
+                "nav-terms": "Условия",
+                "hero-title": "Кастомный софт с веб-панелью и эксклюзивными функциями.",
+                "hero-desc": "Мы создаем высококлассных кастомных ботов Discord и современные веб-приложения, которые придают вашему проекту уникальный и профессиональный вид.",
+                "btn-pricing": "Посмотреть цены",
+                "btn-discord": "Смотреть сервер Discord",
+                "role-leader": "Руководитель проекта",
+                "role-dev": "Ведущий разработчик",
+                "badge-owner": "ВЛАДЕЛЕЦ",
+                "badge-dev": "РАЗРАБОТЧИК",
+                "showcase-tag": "— ОБЗОР БОТА DISCORD —",
+                "showcase-title": "Изучите наш сервер и функции ботов",
+                "showcase-desc": "Нажмите на каждый канал слева, чтобы увидеть, какие задачи бот выполняет автоматически в реальном времени.",
+                "bot-status": "В сети и готов",
+                "chat-input-placeholder": "Введите команду для взаимодействия с ботом...",
+                "pricing-tag": "— ТОВАРЫ —",
+                "pricing-title": "Кастомный оверлей и веб-контроль Zyrex.",
+                "pricing-desc": "Выберите конфигурацию, которая подходит под ваши цели.",
+                "plan-1-badge": "Базовый",
+                "plan-1-desc": "Быстрый выбор: <strong>либо стандартный веб, либо стандартный бот</strong>.",
+                "plan-2-badge": "Кастомный",
+                "plan-2-desc": "Выберите <strong>1 кастомный элемент</strong> (бот или сайт), а второй будет стандартным.",
+                "plan-3-ribbon": "ПОЛНЫЙ КАСТОМ",
+                "plan-3-badge": "Discord + Веб",
+                "plan-3-desc": "<strong>Оба элемента (Бот + Веб)</strong> на 100% созданы под вас.",
+                "btn-buy": "Купить план ↗",
+                "modal-subtitle": "Настройте ваш заказ",
+                "modal-title": "Купить план",
+                "modal-desc": "Выберите желаемое и настройте детали в соответствии с правилами вашего плана.",
+                "label-discord": "Ваш ник в Discord *",
+                "label-features": "Функции, включенные в этот план:",
+                "label-notes": "Дополнительные детали:",
+                "summary-plan": "Выбранный план:",
+                "summary-total": "Итого:",
+                "btn-submit": "Далее (Создать код и отправить заказ) ↗",
+                "success-title": "Заказ успешно оформлен!",
+                "success-desc": "Ваш заказ сохранен. Ваш уникальный код покупки:",
+                "success-code-label": "Код заказа",
+                "success-steps-title": "Что делать дальше?",
+                "success-step-1": "1. Зайдите на наш сервер Discord.",
+                "success-step-2": "2. Откройте <strong>тикет</strong> и отправьте этот код, чтобы персонал проверил выбор и начал работу.",
+                "btn-discord-ticket": "Перейти в Discord и открыть тикет ↗",
+                "terms-tag": "— ПРАВОВАЯ ИНФОРМАЦИЯ —",
+                "terms-title": "Условия предоставления услуг",
+                "terms-subtitle": "Последнее обновление: 2026. Приобретая любое программное обеспечение или услугу Zyrex, вы соглашаетесь со следующими условиями:",
+                "term-1-title": "1. Принятие и сфера услуг",
+                "term-1-desc": "Заказывая услуги у Zyrex (кастомные боты, веб-панели или ПО), клиент неявно принимает сроки, методологии и условия, описанные в этом документе.",
+                "term-2-title": "2. Оплата, возврат и отмена",
+                "term-2-desc": "Все платежи должны производиться заранее или в соответствии с соглашением при открытии тикета. В связи с цифровой природой разработки кастомного ПО, <strong>возврат средств не производится</strong> после начала разработки или написания кода.",
+                "term-3-title": "3. Интеллектуальная собственность и лицензирование",
+                "term-3-desc": "Поставляемое программное обеспечение предоставляется по личной, коммерческой или общественной лицензии (в зависимости от купленного плана). Строго запрещена несанкционированная перепродажа или распространение исходного кода и ботов Zyrex.",
+                "term-4-title": "4. Модификации, доработки и сроки",
+                "term-4-desc": "Модификации за пределами исходного объема могут повлечь за собой дополнительные расходы. Сроки выполнения являются ориентировочными.",
+                "term-5-title": "5. Техническая поддержка и гарантия",
+                "term-5-desc": "Zyrex предоставляет послепродажную поддержку для исправления ошибок (багов), относящихся непосредственно к исходной разработке в течение срока вашего плана.",
+                "footer-copy": "&copy; 2026 ZYREX. ВСЕ ПРАВА ЗАЩИЩЕНЫ."
+            }
+        };
+
+        // Contenido multilingüe (Inglés y Ruso) para el simulador de Discord
+        const channelDataLocalized = {
+            en: {
+                verify: { title: "🔒 | verify", desc: "| Anti-bot verification system and secure access", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Today", text: "🔐 **ZYREX VERIFICATION SYSTEM**\nTo get full access to the server and unlock all channels, click below.\n\n`[ 🛡 Verify My Account ]`" }] },
+                advert: { title: "📢 | advert", desc: "| Official announcements and updates", messages: [{ user: "Asia", bot: false, color: "text-sky-300", time: "Today", text: "📢 **NEW BOT UPDATE V2.4**\nWe have deployed new intelligent moderation systems." }] },
+                changelog: { title: "💻 | changelog", desc: "| Changelog and improvements history", messages: [{ user: "Momsy", bot: false, color: "text-sky-400", time: "Today", text: "📝 **CHANGELOG - v2.4.1**\n• Database optimization.\n• Bug fixes." }] },
+                term: { title: "📄 | term", desc: "| Terms and conditions", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Today", text: "📄 **ZYREX TERMS & CONDITIONS**\nMutual respect and personal use licenses." }] },
+                web: { title: "🌐 | web", desc: "| Direct links to our web", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Today", text: "🌐 **OFFICIAL WEB PANEL**\n👉 `https://zyrex.app`" }] },
+                feedback: { title: "✅ | feedback", desc: "| Customer reviews", messages: [{ user: "ClientVIP", bot: false, color: "text-emerald-400", time: "Today", text: "⭐ Excellent service and 10/10 support!" }] },
+                media: { title: "🎬 | media", desc: "| Clips and demonstrations", messages: [{ user: "Momsy", bot: false, color: "text-sky-400", time: "Today", text: "🎬 Video preview of our works." }] },
+                ticket: { title: "🎫 | ticket", desc: "| Automated support system", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Today", text: "🎫 **ZYREX SUPPORT**\nNeed help? Open a ticket below.\n\n`[ 📩 Create Ticket ]`" }] }
+            },
+            ru: {
+                verify: { title: "🔒 | verify", desc: "| Система верификации и безопасный доступ", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Сегодня", text: "🔐 **СИСТЕМА ВЕРИФИКАЦИИ ZYREX**\nДля получения полного доступа к серверу нажмите ниже.\n\n`[ 🛡 Подтвердить аккаунт ]`" }] },
+                advert: { title: "📢 | advert", desc: "| Официальные объявления и обновления", messages: [{ user: "Asia", bot: false, color: "text-sky-300", time: "Сегодня", text: "📢 **НОВОЕ ОБНОВЛЕНИЕ БОТА V2.4**\nМы внедрили новые системы умной модерации." }] },
+                changelog: { title: "💻 | changelog", desc: "| История изменений и улучшений", messages: [{ user: "Momsy", bot: false, color: "text-sky-400", time: "Сегодня", text: "📝 **ИСТОРИЯ ИЗМЕНЕНИЙ - v2.4.1**\n• Оптимизация базы данных.\n• Исправление ошибок." }] },
+                term: { title: "📄 | term", desc: "| Условия использования", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Сегодня", text: "📄 **УСЛОВИЯ ZYREX**\nВзаимное уважение и лицензии." }] },
+                web: { title: "🌐 | web", desc: "| Прямые ссылки на наш сайт", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Сегодня", text: "🌐 **ОФИЦИАЛЬНЫЙ ВЕБ-ПАНЕЛЬ**\n👉 `https://zyrex.app`" }] },
+                feedback: { title: "✅ | feedback", desc: "| Отзывы клиентов", messages: [{ user: "ClientVIP", bot: false, color: "text-emerald-400", time: "Сегодня", text: "⭐ Отличный сервис и поддержка 10/10!" }] },
+                media: { title: "🎬 | media", desc: "| Клипы и демонстрации", messages: [{ user: "Momsy", bot: false, color: "text-sky-400", time: "Сегодня", text: "🎬 Видеопрезентация наших работ." }] },
+                ticket: { title: "🎫 | ticket", desc: "| Автоматизированная система поддержки", messages: [{ user: "ZyrexBot", bot: true, color: "text-sky-400", time: "Сегодня", text: "🎫 **ПОДДЕРЖКА ZYREX**\nНужна помощь? Откройте тикет ниже.\n\n`[ 📩 Создать тикет ]`" }] }
+            }
+        };
+
+        let currentActiveChannel = 'ticket';
+
+        // Función global de traducción
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            document.documentElement.setAttribute('lang', lang);
+            
+            if(channelDataLocalized[lang] && channelDataLocalized[lang][currentActiveChannel]) {
+                const data = channelDataLocalized[lang][currentActiveChannel];
+                document.getElementById('activeChannelTitle').innerText = data.title;
+                document.getElementById('activeChannelDesc').innerText = data.desc;
+                renderMessages(data.messages);
+            }
+        }
+
+        document.getElementById('langSelect').addEventListener('change', (e) => {
+            changeLanguage(e.target.value);
+        });
+
         const mac = document.getElementById('mac3d');
         const macContainer = document.querySelector('.mac-container');
         macContainer.addEventListener('mousemove', (e) => {
@@ -609,7 +766,6 @@
             mac.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
         });
 
-        // Efecto 3D interactivo para las tarjetas de perfil
         const cards = document.querySelectorAll('.floating-card');
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -631,83 +787,22 @@
             });
         });
 
-        // ==========================================
-        // CONFIGURACIÓN DE CANALES Y FUNCIONES DE LOS BOTS
-        // ==========================================
-        const channelData = {
-            verify: {
-                title: "🔒 | verify",
-                desc: "| Sistema de verificación anti-bots y acceso seguro",
-                messages: [
-                    { user: "ZyrexBot", bot: true, color: "text-indigo-400", time: "Hoy a las 12:00", text: "🔐 **SISTEMA DE VERIFICACIÓN ZYREX**\nPara obtener acceso completo al servidor y desbloquear todos los canales, haz clic en el botón de abajo para verificar tu cuenta de Discord.\n\n`[ 🛡️ Verificar mi cuenta ]`" }
-                ]
-            },
-            advert: {
-                title: "📢 | advert",
-                desc: "| Anuncios oficiales y actualizaciones de Zyrex",
-                messages: [
-                    { user: "Asia", bot: false, color: "text-yellow-400", time: "Hoy a las 13:15", text: "📢 **NUEVA ACTUALIZACIÓN DE BOTS V2.4**\nHemos implementado nuevos sistemas de moderación inteligente con comandos Slash ultrarrápidos. ¡Revisa el canal changelog para más detalles!" }
-                ]
-            },
-            changelog: {
-                title: "💻 | changelog",
-                desc: "| Historial de cambios y mejoras del desarrollo",
-                messages: [
-                    { user: "Momsy", bot: false, color: "text-cyan-400", time: "Hoy a las 14:00", text: "📝 **CHANGELOG - v2.4.1**\n• Optimización de base de datos en los bots de economía.\n• Corrección de errores menores en paneles web de control.\n• Mejora de velocidad en respuestas de comandos." }
-                ]
-            },
-            term: {
-                title: "📄 | term",
-                desc: "| Términos y condiciones del servidor y servicios",
-                messages: [
-                    { user: "ZyrexBot", bot: true, color: "text-indigo-400", time: "Hoy a las 10:00", text: "📄 **TÉRMINOS Y CONDICIONES DE ZYREX**\n1. Respeto mutuo en todos los canales de la comunidad.\n2. El software contratado cuenta con licencia de uso personal.\n3. Queda prohibida la reventa no autorizada de nuestros bots." }
-                ]
-            },
-            web: {
-                title: "🌐 | web",
-                desc: "| Enlaces directos a nuestra plataforma y panel web",
-                messages: [
-                    { user: "ZyrexBot", bot: true, color: "text-indigo-400", time: "Hoy a las 15:30", text: "🌐 **PANEL WEB OFICIAL DE ZYREX**\nControla tus bots, visualiza estadísticas en tiempo real y gestiona tus pedidos desde nuestra web oficial:\n👉 `https://zyrex.app`" }
-                ]
-            },
-            feedback: {
-                title: "✅ | feedback",
-                desc: "| Opiniones y valoraciones de clientes satisfechos",
-                messages: [
-                    { user: "ClientVIP", bot: false, color: "text-emerald-400", time: "Hoy a las 16:00", text: "⭐ Contraté el plan Full Custom y el bot superó todas mis expectativas. La atención de Asia y Momsy es de 10/10." },
-                    { user: "ZyrexBot", bot: true, color: "text-indigo-400", time: "Hoy a las 16:02", text: "✨ ¡Muchas gracias por tu feedback! Se ha añadido un punto de reputación a tu perfil en el bot." }
-                ]
-            },
-            media: {
-                title: "🎬 | media",
-                desc: "| Clips, fotos y demostraciones visuales de nuestros trabajos",
-                messages: [
-                    { user: "Momsy", bot: false, color: "text-cyan-400", time: "Hoy a las 16:45", text: "🎬 Aquí tienen una vista previa en video de cómo interactúa nuestra web con los comandos del bot en tiempo real:\n`[ 🎥 Ver demostración en pantalla completa ]`" }
-                ]
-            },
-            ticket: {
-                title: "🎫 | ticket",
-                desc: "| Sistema automatizado de soporte y atención al cliente",
-                messages: [
-                    { user: "ZyrexBot", bot: true, color: "text-indigo-400", time: "Hoy a las 17:00", text: "🎫 **SOPORTE Y ATENCIÓN AL CLIENTE - ZYREX**\n¿Necesitas ayuda con un bot personalizado o quieres contratar un plan? Abre un ticket haciendo clic en el botón de abajo.\n\n`[ 📩 Crear Ticket de Soporte ]`" }
-                ]
-            }
-        };
-
-        function switchChannel(channelKey, channelNameFormatted) {
-            const data = channelData[channelKey];
+        function switchChannel(channelKey, defaultNameFormatted) {
+            currentActiveChannel = channelKey;
+            const currentLang = document.getElementById('langSelect').value;
+            const dataset = channelDataLocalized[currentLang] || channelDataLocalized['en'];
+            const data = dataset[channelKey];
             if (!data) return;
 
             document.getElementById('activeChannelTitle').innerText = data.title;
             document.getElementById('activeChannelDesc').innerText = data.desc;
             
-            // Cambiar estilos activos en los botones de canales
             document.querySelectorAll('.channel-btn').forEach(btn => {
-                btn.classList.remove('bg-[#16181f]', 'text-white', 'font-medium', 'shadow-inner', 'border', 'border-gray-800/60');
-                btn.classList.add('text-gray-400');
+                btn.classList.remove('bg-[#0f1d38]', 'text-white', 'font-medium', 'shadow-inner', 'border', 'border-sky-900/50');
+                btn.classList.add('text-gray-300');
             });
-            event.currentTarget.classList.add('bg-[#16181f]', 'text-white', 'font-medium', 'shadow-inner', 'border', 'border-gray-800/60');
-            event.currentTarget.classList.remove('text-gray-400');
+            event.currentTarget.classList.add('bg-[#0f1d38]', 'text-white', 'font-medium', 'shadow-inner', 'border', 'border-sky-900/50');
+            event.currentTarget.classList.remove('text-gray-300');
 
             renderMessages(data.messages);
         }
@@ -719,26 +814,24 @@
             messages.forEach(msg => {
                 let badge = msg.bot ? `<span class="bg-[#5865F2] text-white text-[9px] px-1.5 py-0.2 rounded font-bold ml-1.5 tracking-wide shadow-sm">BOT</span>` : '';
                 container.innerHTML += `
-                    <div class="flex items-start space-x-3.5 hover:bg-[#121318]/50 p-1.5 rounded-lg transition">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-900 via-purple-950 to-slate-900 border border-gray-800 flex items-center justify-center font-bold text-white text-sm flex-shrink-0 shadow-md">
+                    <div class="flex items-start space-x-3.5 hover:bg-[#080d1a]/50 p-1.5 rounded-lg transition">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-950 via-blue-900 to-[#03050a] border border-sky-900/50 flex items-center justify-center font-bold text-white text-sm flex-shrink-0 shadow-md">
                             ${msg.user.charAt(0)}
                         </div>
                         <div class="flex flex-col flex-1 min-w-0">
                             <div class="flex items-center space-x-2">
                                 <span class="font-bold text-white text-sm ${msg.color}">${msg.user}</span>${badge}
-                                <span class="text-[10px] text-gray-500 font-medium">${msg.time}</span>
+                                <span class="text-[10px] text-gray-400 font-medium">${msg.time}</span>
                             </div>
-                            <p class="text-gray-300 text-xs mt-1 whitespace-pre-line leading-relaxed bg-[#121317] p-3 rounded-xl border border-[#1a1b22] shadow-sm">${msg.text}</p>
+                            <p class="text-gray-200 text-xs mt-1 whitespace-pre-line leading-relaxed bg-[#080c16] p-3 rounded-xl border border-sky-950 shadow-sm">${msg.text}</p>
                         </div>
                     </div>
                 `;
             });
         }
 
-        // Cargar por defecto el canal ticket al abrir
-        renderMessages(channelData['ticket'].messages);
+        renderMessages(channelDataLocalized['en']['ticket'].messages);
 
-        // Lógica de Checkout y Webhook de Discord
         let selectedPlan = '';
         let selectedPrice = 0;
         let currentFeaturesList = [];
@@ -746,58 +839,53 @@
         function openCheckout(planName, price) {
             selectedPlan = planName;
             selectedPrice = price;
-            document.getElementById('modalPlanTitle').innerText = 'Plan ' + planName;
+            document.getElementById('modalPlanTitle').innerText = planName;
             document.getElementById('summaryPlanName').innerText = planName;
             document.getElementById('summaryPlanPrice').innerText = '$' + price + ' USD';
             
             const container = document.getElementById('featuresContainer');
             const dynamicModule = document.getElementById('dynamicModuleSelection');
             const notesInput = document.getElementById('orderNotes');
-            const notesLabel = document.getElementById('notesLabel');
             
             container.innerHTML = '';
             dynamicModule.innerHTML = '';
             notesInput.value = '';
 
-            if (planName === 'Básico') {
+            const currentLang = document.getElementById('langSelect').value;
+
+            if (planName === 'Basic' || planName === 'Básico') {
                 dynamicModule.innerHTML = `
-                    <label class="block text-xs font-semibold text-gray-300">¿Qué deseas elegir para este plan? *</label>
-                    <select id="choiceType" class="w-full bg-[#0a0a0c] border border-gray-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-gray-600 transition">
-                        <option value="Bot Estándar">Bot de Discord Estándar</option>
-                        <option value="Web Estándar">Página Web Estándar</option>
+                    <label class="block text-xs font-semibold text-gray-300">${currentLang === 'ru' ? 'Что вы хотите выбрать?' : 'What do you want to choose?'} *</label>
+                    <select id="choiceType" class="w-full bg-[#03050a] border border-sky-950 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-sky-500 transition">
+                        <option value="Bot Estándar">${currentLang === 'ru' ? 'Стандартный бот Discord' : 'Standard Discord Bot'}</option>
+                        <option value="Web Estándar">${currentLang === 'ru' ? 'Стандартный веб-сайт' : 'Standard Website'}</option>
                     </select>
                 `;
-                currentFeaturesList = ["Entrega rápida y directa", "Estructura estándar predefinida", "Soporte básico por Discord"];
-                notesLabel.innerText = "Notas breves opcionales:";
-                notesInput.placeholder = "ej. Nombre del bot o color de la web...";
+                currentFeaturesList = currentLang === 'ru' ? ["Быстрая доставка", "Стандартная структура", "Базовая поддержка"] : ["Fast delivery", "Standard pre-defined structure", "Basic Discord support"];
             } 
-            else if (planName === 'Personalizado') {
+            else if (planName === 'Custom' || planName === 'Personalizado') {
                 dynamicModule.innerHTML = `
-                    <label class="block text-xs font-semibold text-gray-300">¿Qué elemento deseas hacer PERSONALIZADO? (El otro será estándar) *</label>
-                    <select id="choiceType" class="w-full bg-[#0a0a0c] border border-gray-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-gray-600 transition">
-                        <option value="Bot Personalizado + Web Estándar">Bot de Discord Personalizado (Web Estándar)</option>
-                        <option value="Web Personalizada + Bot Estándar">Página Web Personalizada (Bot Estándar)</option>
+                    <label class="block text-xs font-semibold text-gray-300">${currentLang === 'ru' ? 'Какой элемент сделать КАСТОМНЫМ?' : 'Which element do you want CUSTOM?'} *</label>
+                    <select id="choiceType" class="w-full bg-[#03050a] border border-sky-950 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-sky-500 transition">
+                        <option value="Bot Personalizado + Web Estándar">Bot Custom + Web Standard</option>
+                        <option value="Web Personalizada + Bot Estándar">Web Custom + Bot Standard</option>
                     </select>
                 `;
-                currentFeaturesList = ["1 Módulo 100% personalizado a elección", "1 Módulo estándar (tickets/bienvenida básicos)", "Ajustes avanzados en la opción elegida"];
-                notesLabel.innerText = "Describe los detalles específicos del elemento que elegiste personalizar: *";
-                notesInput.placeholder = "ej. Elegí la web personalizada: quiero que tenga diseño oscuro minimalista...";
+                currentFeaturesList = currentLang === 'ru' ? ["1 кастомный модуль на выбор", "1 стандартный модуль", "Расширенные настройки"] : ["1 Custom module of your choice", "1 Standard module", "Advanced settings"];
             } 
             else { 
                 dynamicModule.innerHTML = `
-                    <div class="bg-[#0a0a0c] border border-gray-800 rounded-xl p-3 text-xs text-indigo-300">
-                        ✨ Este plan incluye <strong>ambos elementos (Bot + Web)</strong> 100% personalizados a tu medida.
+                    <div class="bg-[#03050a] border border-sky-900/50 rounded-xl p-3 text-xs text-sky-300">
+                        ${currentLang === 'ru' ? '✨ Включает <strong>оба элемента (Бот + Веб)</strong> под заказ.' : '✨ Includes <strong>both elements (Bot + Web)</strong> 100% custom.'}
                     </div>
                 `;
-                currentFeaturesList = ["Bot de Discord 100% Personalizado", "Página Web Avanzada 100% Personalizada", "Base de datos y funciones exclusivas ilimitadas", "Soporte VIP Prioritario"];
-                notesLabel.innerText = "Describe detalladamente ambos proyectos (Bot y Web): *";
-                notesInput.placeholder = "ej. Quiero un bot con sistema de economía y moderación avanzada...";
+                currentFeaturesList = currentLang === 'ru' ? ["Кастомный бот Discord", "Кастомный веб-сайт", "Эксклюзивные функции", "VIP поддержка"] : ["100% Custom Discord Bot", "100% Custom Advanced Website", "Unlimited exclusive features", "VIP Priority Support"];
             }
 
             currentFeaturesList.forEach((feat) => {
                 container.innerHTML += `
                     <div class="flex items-center space-x-2.5 py-0.5">
-                        <span class="text-emerald-400 font-bold">✓</span>
+                        <span class="text-sky-400 font-bold">✓</span>
                         <span class="text-gray-200">${feat}</span>
                     </div>
                 `;
@@ -817,9 +905,9 @@
         function submitOrderToDiscord(event) {
             event.preventDefault();
             const discordUser = document.getElementById('discordUser').value;
-            const orderNotes = document.getElementById('orderNotes').value || "Sin notas adicionales";
+            const orderNotes = document.getElementById('orderNotes').value || "No additional notes";
             const choiceSelect = document.getElementById('choiceType');
-            const specificChoice = choiceSelect ? choiceSelect.value : 'Ambos Personalizados (Bot + Web)';
+            const specificChoice = choiceSelect ? choiceSelect.value : 'Both Custom (Bot + Web)';
 
             const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             let randomCode = '';
@@ -832,14 +920,14 @@
 
             const payload = {
                 embeds: [{
-                    title: "🛒 ¡NUEVO PEDIDO RECIBIDO EN LA WEB!",
-                    color: 1146986, 
+                    title: "🛒 NEW ORDER RECEIVED ON WEB!",
+                    color: 147455, 
                     fields: [
-                        { name: "🏷️ Código de Pedido", value: `\`${finalOrderCode}\``, inline: true },
-                        { name: "📦 Plan Seleccionado", value: `**${selectedPlan}** ($${selectedPrice} USD)`, inline: true },
-                        { name: "👤 Cliente de Discord", value: discordUser, inline: false },
-                        { name: "⚡ Elección / Módulo", value: specificChoice, inline: false },
-                        { name: "📝 Notas / Detalles del Cliente", value: orderNotes, inline: false }
+                        { name: "🏷 Order Code", value: `\`${finalOrderCode}\``, inline: true },
+                        { name: "📦 Selected Plan", value: `**${selectedPlan}** ($${selectedPrice} USD)`, inline: true },
+                        { name: "👤 Discord Customer", value: discordUser, inline: false },
+                        { name: "⚡ Choice / Module", value: specificChoice, inline: false },
+                        { name: "📝 Customer Notes / Details", value: orderNotes, inline: false }
                     ],
                     footer: { text: "Zyrex Software Bot System • 2026" },
                     timestamp: new Date().toISOString()
@@ -850,7 +938,7 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
-            }).catch(err => console.error("Error al enviar al webhook:", err));
+            }).catch(err => console.error("Error sending to webhook:", err));
             
             document.getElementById('step1').classList.add('hidden');
             document.getElementById('step2').classList.remove('hidden');
