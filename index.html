@@ -37,31 +37,22 @@
             font-family: 'Cinzel', serif;
         }
 
+        /* Luces de fondo muy suaves y lentas */
         @keyframes floatLight1 {
             0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
-            25% { transform: translate(300px, 200px) scale(1.3) rotate(90deg); }
-            50% { transform: translate(-100px, 400px) scale(0.9) rotate(180deg); }
-            75% { transform: translate(-250px, 150px) scale(1.2) rotate(270deg); }
+            50% { transform: translate(150px, 100px) scale(1.1) rotate(180deg); }
             100% { transform: translate(0px, 0px) scale(1) rotate(360deg); }
         }
 
         @keyframes floatLight2 {
             0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
-            33% { transform: translate(-250px, 300px) scale(1.4) rotate(-120deg); }
-            66% { transform: translate(250px, 150px) scale(0.8) rotate(-240deg); }
+            50% { transform: translate(-150px, 120px) scale(1.15) rotate(-180deg); }
             100% { transform: translate(0px, 0px) scale(1) rotate(-360deg); }
-        }
-
-        @keyframes floatLight3 {
-            0% { transform: translate(0px, 0px) scale(0.9); }
-            40% { transform: translate(200px, -250px) scale(1.3); }
-            80% { transform: translate(-200px, -150px) scale(1.1); }
-            100% { transform: translate(0px, 0px) scale(0.9); }
         }
 
         @keyframes floatSymbol {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(1deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
         }
 
         .light-blob-1 {
@@ -70,11 +61,11 @@
             left: 5%;
             width: 550px;
             height: 550px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(140, 140, 180, 0.02) 45%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(140, 140, 180, 0.015) 45%, transparent 70%);
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(90px);
             z-index: -1;
-            animation: floatLight1 14s ease-in-out infinite;
+            animation: floatLight1 22s ease-in-out infinite;
             pointer-events: none;
         }
 
@@ -84,38 +75,24 @@
             right: 2%;
             width: 650px;
             height: 650px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, rgba(100, 100, 100, 0.02) 50%, transparent 75%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(100, 100, 100, 0.015) 50%, transparent 75%);
             border-radius: 50%;
-            filter: blur(100px);
+            filter: blur(110px);
             z-index: -1;
-            animation: floatLight2 18s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .light-blob-3 {
-            position: absolute;
-            top: 65%;
-            left: 15%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, rgba(80, 80, 80, 0.02) 45%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(95px);
-            z-index: -1;
-            animation: floatLight3 16s ease-in-out infinite;
+            animation: floatLight2 26s ease-in-out infinite;
             pointer-events: none;
         }
 
         .metallic-z-container {
-            animation: floatSymbol 4s ease-in-out infinite;
+            animation: floatSymbol 5s ease-in-out infinite;
             filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8));
         }
 
         .metallic-z {
-            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 30%, #52525b 50%, #d4d4d8 70%, #27272a 100%);
+            background: linear-gradient(135deg, #ffffff 20%, #d4d4d8 50%, #71717a 80%, #3f3f46 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 2px 4px 15px rgba(255, 255, 255, 0.15);
+            filter: drop-shadow(0 2px 4px rgba(255,255,255,0.2));
         }
         
         .safari-viewport::-webkit-scrollbar {
@@ -129,23 +106,33 @@
             border-radius: 4px;
         }
 
-        .mac-container {
-            perspective: 1400px;
+        /* Movimiento 3D súper suave y tranqui */
+        .cards-wrapper, .mac-container {
+            perspective: 1000px;
         }
 
-        .floating-mac {
+        .floating-card, .floating-mac {
             transform-style: preserve-3d;
-            transition: transform 0.1s ease-out;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: transform;
+        }
+
+        .card-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 1.5rem;
+            pointer-events: none;
+            background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.1), transparent 65%);
+            z-index: 2;
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
 <body class="text-gray-100 min-h-screen selection:bg-gray-700 selection:text-white relative">
 
-    <!-- Luces de Fondo Dinámicas -->
+    <!-- Luces de Fondo -->
     <div class="light-blob-1"></div>
     <div class="light-blob-2"></div>
-    <div class="light-blob-3"></div>
 
     <!-- Navbar Principal -->
     <header class="border-b border-gray-800/40 sticky top-0 z-40 bg-[#050507]/80 backdrop-blur-md">
@@ -175,49 +162,121 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="max-w-5xl mx-auto px-6 py-20 text-center space-y-8">
-        <div class="metallic-z-container inline-block">
-            <span class="text-8xl md:text-9xl font-black font-gothic metallic-z tracking-tighter block select-none">
-                Z
-            </span>
-        </div>
+    <section id="hero" class="max-w-6xl mx-auto px-6 pt-20 pb-16 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <!-- Columna Izquierda -->
+            <div class="lg:col-span-7 space-y-6 text-left">
+                <div class="flex items-center space-x-6">
+                    <div class="metallic-z-container inline-block">
+                        <span class="text-7xl md:text-9xl font-black font-gothic metallic-z tracking-tighter block select-none">
+                            Z
+                        </span>
+                    </div>
+                </div>
 
-        <div class="flex items-center justify-center space-x-3">
-            <span class="text-2xl md:text-4xl font-extrabold text-white tracking-tight">Best Web & Discord Developer</span>
-            <span class="text-xs md:text-sm font-semibold bg-gray-900/80 text-gray-200 px-3.5 py-1 rounded-full border border-gray-700 backdrop-blur shadow-inner">
-                Software
-            </span>
-        </div>
+                <div class="space-y-3">
+                    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.1] text-white">
+                        Custom software built around web control and exclusive features.
+                    </h1>
+                    
+                    <p class="text-gray-400 text-sm md:text-base leading-relaxed font-light max-w-xl">
+                        We craft high-end custom Discord bots and modern web apps that give your project a unique, modern, and professional edge.
+                    </p>
+                </div>
 
-        <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-gray-200 max-w-3xl mx-auto">
-            Custom software built around web control and exclusive features.
-        </h1>
-        
-        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            We craft high-end custom Discord bots and modern web apps that give your project a unique, modern, and professional edge.
-        </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#pricing" class="bg-white hover:bg-gray-100 text-gray-950 font-bold px-7 py-3.5 rounded-xl transition shadow-lg flex items-center space-x-2 text-sm">
+                        <span>View Pricing</span>
+                        <span>↗</span>
+                    </a>
+                    <a href="#mac-showcase" class="bg-[#121318] border border-gray-700 hover:border-gray-500 text-white font-medium px-7 py-3.5 rounded-xl transition text-sm shadow-md flex items-center space-x-2">
+                        <span>Explorar Mac Interactiva</span>
+                        <span>↗</span>
+                    </a>
+                </div>
+            </div>
 
-        <div class="flex flex-wrap justify-center gap-4 pt-4">
-            <a href="#pricing" class="bg-white hover:bg-gray-200 text-gray-950 font-semibold px-8 py-3.5 rounded-xl transition shadow-lg flex items-center space-x-2 text-sm">
-                <span>View Pricing</span>
-                <span>↗</span>
-            </a>
-            <a href="#mac-showcase" class="bg-cardbg/80 border border-gray-800 hover:border-gray-700 text-white font-medium px-8 py-3.5 rounded-xl transition text-sm backdrop-blur">
-                Explorar Mac Interactiva ↗
-            </a>
+            <!-- Columna Derecha: Tarjetas de Asia y Momsy Limpias (Sin IDs visibles) -->
+            <div class="lg:col-span-5 flex flex-col items-center cards-wrapper py-6 space-y-4">
+                
+                <!-- Tarjeta Owner: Asia -->
+                <div id="cardAsia" class="floating-card w-full max-w-sm bg-[#121318]/95 border border-gray-700/80 rounded-3xl p-5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md relative overflow-hidden group">
+                    <div class="card-glow"></div>
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                    
+                    <div class="flex items-center space-x-4 relative z-10" style="transform: translateZ(20px);">
+                        <div class="relative flex-shrink-0">
+                            <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-gray-600 shadow-xl bg-gray-800 flex items-center justify-center relative group/avatar cursor-pointer" onclick="verifyAndChangePhoto('1536867548384198736', 'imgAsia')" title="Haz clic para cambiar foto (Solo Asia/Momsy)">
+                                <img id="imgAsia" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" 
+                                     alt="Asia avatar" 
+                                     class="w-full h-full object-cover group-hover/avatar:opacity-75 transition">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover/avatar:opacity-100 flex items-center justify-center transition text-[8px] text-white font-bold text-center px-1">
+                                    Cambiar
+                                </div>
+                            </div>
+                            <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#ED4245] border-2 border-[#121318] rounded-full flex items-center justify-center shadow-md pointer-events-none">
+                                <div class="w-1.5 h-0.5 bg-white rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-2.5 min-w-0">
+                            <span class="text-white font-bold text-base tracking-tight truncate">Asia</span>
+                            <span class="bg-[#1a1c26] border border-gray-600 text-yellow-400 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
+                                OWNER
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Dev: Momsy -->
+                <div id="cardMomsy" class="floating-card w-full max-w-sm bg-[#121318]/95 border border-gray-700/80 rounded-3xl p-5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md relative overflow-hidden group">
+                    <div class="card-glow"></div>
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                    
+                    <div class="flex items-center space-x-4 relative z-10" style="transform: translateZ(20px);">
+                        <div class="relative flex-shrink-0">
+                            <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-gray-600 shadow-xl bg-gray-800 flex items-center justify-center relative group/avatar cursor-pointer" onclick="verifyAndChangePhoto('825440224971849808', 'imgMomsy')" title="Haz clic para cambiar foto (Solo Asia/Momsy)">
+                                <img id="imgMomsy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80" 
+                                     alt="Momsy avatar" 
+                                     class="w-full h-full object-cover group-hover/avatar:opacity-75 transition">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover/avatar:opacity-100 flex items-center justify-center transition text-[8px] text-white font-bold text-center px-1">
+                                    Cambiar
+                                </div>
+                            </div>
+                            <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#ED4245] border-2 border-[#121318] rounded-full flex items-center justify-center shadow-md pointer-events-none">
+                                <div class="w-1.5 h-0.5 bg-white rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-2.5 min-w-0">
+                            <span class="text-white font-bold text-base tracking-tight truncate">Momsy</span>
+                            <span class="bg-[#1a1c26] border border-gray-600 text-cyan-400 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
+                                DEV
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input oculto para subir la imagen -->
+                <input type="file" id="globalPhotoInput" accept="image/*" class="hidden" onchange="handleFileSelected(event)">
+
+                <span class="text-[11px] text-gray-500 text-center">💡 Haz clic en los avatares para actualizar la foto (requiere ID autorizado).</span>
+            </div>
+
         </div>
     </section>
 
-    <!-- Sección MacBook 3D -->
-    <section id="mac-showcase" class="max-w-5xl mx-auto px-6 py-16">
+    <!-- Sección MacBook 3D con Movimiento Más Tranquilo -->
+    <section id="mac-showcase" class="max-w-5xl mx-auto px-6 py-12">
         <div class="text-center mb-10 space-y-2">
-            <span class="text-xs uppercase tracking-widest text-white font-semibold">— VISTA INTERACTIVA EN VIVO —</span>
-            <h2 class="text-2xl md:text-4xl font-extrabold text-white">Vista previa de la plataforma</h2>
+            <span class="text-xs uppercase tracking-widest text-gray-400 font-semibold">— VISTA INTERACTIVA EN VIVO —</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white">Vista previa de la plataforma</h2>
             <p class="text-gray-400 text-sm max-w-xl mx-auto">Explora el contenido y diseño integrado de Zyrex directamente desde la laptop.</p>
         </div>
 
-        <div class="flex justify-center mac-container">
-            <div id="mac3d" class="floating-mac w-full max-w-[950px] bg-[#1a1a1f] border border-gray-700 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col">
+        <div class="flex justify-center mac-container py-6">
+            <div id="mac3d" class="floating-mac w-full max-w-[950px] bg-[#1a1a1f] border border-gray-700 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.9)] relative overflow-hidden flex flex-col">
                 
                 <div class="bg-[#121318] px-5 py-3 border-b border-gray-800 flex items-center justify-between">
                     <div class="flex space-x-2">
@@ -229,7 +288,7 @@
                     <div class="w-4"></div>
                 </div>
 
-                <div class="safari-viewport overflow-y-auto bg-[#050507] text-left h-[620px] p-6 md:p-10 space-y-12">
+                <div class="safari-viewport overflow-y-auto bg-[#050507] text-left h-[580px] p-6 md:p-10 space-y-10">
                     <div class="flex justify-between items-center border-b border-gray-800/80 pb-4">
                         <div class="flex items-center space-x-3">
                             <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-gray-800 to-gray-950 border border-gray-700 flex items-center justify-center">
@@ -243,44 +302,58 @@
                         </div>
                     </div>
 
-                    <div class="text-center space-y-4 py-8 border-b border-gray-800/60">
+                    <div class="text-center space-y-3 py-6 border-b border-gray-800/60">
                         <span class="text-xs uppercase tracking-widest bg-gray-900 border border-gray-800 text-gray-300 px-3 py-1 rounded-full">Next-Gen Ecosystem</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Custom Discord Bots & Web Apps</h2>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">Custom Discord Bots & Web Apps</h2>
                         <p class="text-gray-400 text-sm max-w-lg mx-auto">Soluciones profesionales adaptadas a lo que tu comunidad y proyecto necesitan.</p>
                     </div>
 
-                    <div class="space-y-4 py-4 border-b border-gray-800/60">
-                        <h3 class="text-base font-bold text-white">Planes y Precios Activos</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-cardbg p-4 rounded-xl border border-gray-800 space-y-2">
+                    <div class="space-y-4 py-2 border-b border-gray-800/60">
+                        <h3 class="text-sm font-bold text-white">Planes y Precios Activos</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <div class="bg-cardbg p-3.5 rounded-xl border border-gray-800 space-y-1.5">
                                 <span class="text-[10px] bg-gray-800 text-gray-300 px-2 py-0.5 rounded">Básico ($15)</span>
                                 <p class="text-xs text-gray-400">Eliges O una Web O un Bot estándar.</p>
                             </div>
-                            <div class="bg-cardbg p-4 rounded-xl border border-gray-800 space-y-2">
+                            <div class="bg-cardbg p-3.5 rounded-xl border border-gray-800 space-y-1.5">
                                 <span class="text-[10px] bg-gray-800 text-gray-300 px-2 py-0.5 rounded">Personalizado ($35)</span>
                                 <p class="text-xs text-gray-400">1 elemento personalizado a elección + el otro estándar.</p>
                             </div>
-                            <div class="bg-[#151824] p-4 rounded-xl border border-white/30 space-y-2">
+                            <div class="bg-[#151824] p-3.5 rounded-xl border border-white/30 space-y-1.5">
                                 <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded font-bold">FULL CUSTOM ($50)</span>
                                 <p class="text-xs text-gray-400">Discord + Web ambos 100% personalizados.</p>
                             </div>
                         </div>
                     </div>
+
+                    <div class="space-y-3 py-2">
+                        <h3 class="text-sm font-bold text-white">Características Exclusivas de Zyrex</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-gray-400">
+                            <div class="bg-cardbg p-3.5 rounded-xl border border-gray-800 space-y-1">
+                                <span class="text-white font-semibold">⚙ Control Total Web & Bots</span>
+                                <p>Paneles de administración avanzados y bots sincronizados en tiempo real para optimizar tu proyecto.</p>
+                            </div>
+                            <div class="bg-cardbg p-3.5 rounded-xl border border-gray-800 space-y-1">
+                                <span class="text-white font-semibold">🚀 Alto Rendimiento Garantizado</span>
+                                <p>Infraestructura optimizada y código limpio para asegurar estabilidad absoluta 24/7.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="max-w-6xl mx-auto px-6 py-20">
-        <div class="text-center mb-16">
+    <section id="pricing" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="text-center mb-14">
             <span class="text-xs uppercase tracking-widest text-gray-400 font-semibold">— P R O D U C T S —</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white mt-2">Zyrex Custom Overlay and Web Control.</h2>
+            <h2 class="text-3xl font-extrabold tracking-tight text-white mt-2">Zyrex Custom Overlay and Web Control.</h2>
             <p class="text-gray-400 text-sm mt-2">Choose the setup that matches how you want to use Zyrex.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <!-- Plan Básico -->
             <div class="bg-cardbg border border-[#1e2029] rounded-2xl p-8 flex flex-col justify-between shadow-2xl">
                 <div>
                     <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase">Básico</div>
@@ -289,7 +362,6 @@
                 </div>
                 <button onclick="openCheckout('Básico', 15)" class="w-full bg-[#1a1c26] hover:bg-[#232634] text-white font-semibold py-3.5 rounded-xl text-center text-sm block cursor-pointer transition">Comprar Plan ↗</button>
             </div>
-            <!-- Plan Personalizado -->
             <div class="bg-cardbg border border-[#1e2029] rounded-2xl p-8 flex flex-col justify-between shadow-2xl">
                 <div>
                     <div class="bg-[#1c1f2e] text-[#a3aab9] text-xs font-semibold px-3 py-1.5 rounded-md w-fit mb-6 uppercase">Personalizado</div>
@@ -298,7 +370,6 @@
                 </div>
                 <button onclick="openCheckout('Personalizado', 35)" class="w-full bg-[#1a1c26] hover:bg-[#232634] text-white font-semibold py-3.5 rounded-xl text-center text-sm block cursor-pointer transition">Comprar Plan ↗</button>
             </div>
-            <!-- Plan Full Custom -->
             <div class="bg-[#14161f] border border-[#2a2d3d] rounded-2xl p-8 flex flex-col justify-between shadow-2xl relative">
                 <div class="absolute -top-3.5 right-6 bg-[#2a2d3d] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase">FULL CUSTOM</div>
                 <div>
@@ -311,7 +382,7 @@
         </div>
     </section>
 
-    <!-- Modal de Checkout Dinámico adaptado -->
+    <!-- Modal de Checkout Dinámico -->
     <div id="checkoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-cardbg border border-gray-800 rounded-2xl max-w-lg w-full p-6 md:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto safari-viewport">
             <button onclick="closeCheckout()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold">&times;</button>
@@ -329,10 +400,7 @@
                         <input type="text" id="discordUser" required placeholder="ej. usuario#1234" class="w-full bg-[#0a0a0c] border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gray-600 transition">
                     </div>
 
-                    <!-- Selector dinámico modular según el plan -->
-                    <div id="dynamicModuleSelection" class="space-y-2">
-                        <!-- Se llena mediante JavaScript -->
-                    </div>
+                    <div id="dynamicModuleSelection" class="space-y-2"></div>
 
                     <div class="space-y-2">
                         <label class="block text-xs font-semibold text-gray-300">Características incluidas en este plan:</label>
@@ -361,7 +429,6 @@
                 </form>
             </div>
 
-            <!-- Paso 2: Código de Compra -->
             <div id="step2" class="hidden space-y-4 text-center">
                 <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">✓</div>
                 <h3 class="text-xl font-extrabold text-white">¡Pedido registrado con éxito!</h3>
@@ -385,16 +452,29 @@
         </div>
     </div>
 
-    <!-- Términos y Feedback -->
+    <!-- Términos y Condiciones -->
     <section id="terms" class="max-w-4xl mx-auto px-6 py-16 border-t border-gray-800/40">
         <div class="text-center mb-8">
-            <span class="text-xs uppercase tracking-widest text-white font-semibold">— LEGAL —</span>
+            <span class="text-xs uppercase tracking-widest text-gray-400 font-semibold">— L E G A L —</span>
             <h2 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Términos y Condiciones del Servicio</h2>
         </div>
         <div class="bg-cardbg border border-gray-800 p-8 rounded-2xl space-y-6 text-sm text-gray-300 leading-relaxed shadow-xl">
-            <p>1. <strong>Aceptación:</strong> Al contratar servicios en Zyrex, aceptas los términos de desarrollo y entrega establecidos.</p>
-            <p>2. <strong>Uso del Software:</strong> Licencias de uso personal e intransferible.</p>
-            <p>3. <strong>Reembolsos:</strong> No hay reembolsos una vez iniciado el desarrollo por la naturaleza digital del servicio.</p>
+            <div>
+                <h3 class="font-bold text-white mb-1">1. Aceptación de los Términos</h3>
+                <p>Al adquirir cualquier producto, bot o desarrollo web en Zyrex, aceptas de manera automática e incondicional los términos y políticas descritos en este documento.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-1">2. Propiedad y Licenciamiento</h3>
+                <p>Todos los códigos, bots y diseños web entregados cuentan con una licencia de uso personal o para el proyecto específico del cliente. Queda estrictamente prohibida su reventa, redistribución o comercialización no autorizada por parte de terceros.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-1">3. Pagos y Reembolsos</h3>
+                <p>Debido a la naturaleza digital y personalizada de los servicios de desarrollo de software y bots, no se realizan reembolsos ni devoluciones una vez que el proceso de desarrollo y entrega haya comenzado oficialmente.</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-white mb-1">4. Soportes y Entrega de Pedidos</h3>
+                <p>Las entregas se gestionan de forma exclusiva mediante tickets de soporte en nuestro servidor oficial de Discord, utilizando el código de compra generado tras completar tu pedido en la pasarela web.</p>
+            </div>
         </div>
     </section>
 
@@ -403,14 +483,98 @@
     </footer>
 
     <script>
+        // IDs permitidos (Asia y Momsy)
+        const ALLOWED_IDS = ["1536867548384198736", "825440224971849808"];
+        let targetImgIdToChange = '';
+
+        // Fotos originales por defecto
+        const defaultAsiaPhoto = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80";
+        const defaultMomsyPhoto = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80";
+
+        // Al cargar la página, recuperamos las fotos guardadas en localStorage para siempre
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedAsiaPhoto = localStorage.getItem('zyrex_asia_photo');
+            const savedMomsyPhoto = localStorage.getItem('zyrex_momsy_photo');
+
+            if (savedAsiaPhoto) {
+                document.getElementById('imgAsia').src = savedAsiaPhoto;
+            }
+            if (savedMomsyPhoto) {
+                document.getElementById('imgMomsy').src = savedMomsyPhoto;
+            }
+        });
+
+        // Función para verificar ID antes de cambiar la foto
+        function verifyAndChangePhoto(ownerId, imgId) {
+            const inputId = prompt("🔒 Acceso Restringido:\nIngresa tu ID de Discord autorizado para cambiar la foto:");
+            
+            if (inputId === null) return; // Si cancela
+
+            if (ALLOWED_IDS.includes(inputId.trim())) {
+                targetImgIdToChange = imgId;
+                document.getElementById('globalPhotoInput').click();
+            } else {
+                alert("❌ Acceso denegado. Solo Asia y Momsy pueden cambiar estas fotos.");
+            }
+        }
+
+        // Manejar la foto seleccionada y guardarla permanentemente
+        function handleFileSelected(event) {
+            const file = event.target.files[0];
+            if (file && targetImgIdToChange) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const base64Data = e.target.result;
+                    document.getElementById(targetImgIdToChange).src = base64Data;
+                    
+                    // Guardar permanentemente según el elemento
+                    if (targetImgIdToChange === 'imgAsia') {
+                        localStorage.setItem('zyrex_asia_photo', base64Data);
+                    } else if (targetImgIdToChange === 'imgMomsy') {
+                        localStorage.setItem('zyrex_momsy_photo', base64Data);
+                    }
+                    
+                    alert("✅ ¡Foto actualizada y guardada para siempre con éxito!");
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Movimiento 3D súper suave y tranqui para las tarjetas
+        document.querySelectorAll('.floating-card').forEach(card => {
+            const parent = card.closest('.cards-wrapper') || card.parentElement;
+            parent.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 18;
+                const rotateY = (centerX - x) / 18;
+
+                card.style.transform = `rotateX(${-rotateX}deg) rotateY(${-rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+
+            parent.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+
+        // Movimiento 3D fluido y muy suave para la MacBook
         const mac = document.getElementById('mac3d');
         const macContainer = document.querySelector('.mac-container');
+        
         macContainer.addEventListener('mousemove', (e) => {
             const rect = macContainer.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
-            mac.style.transform = `rotateX(${-y / 20}deg) rotateY(${x / 20}deg) scale(1.01)`;
+            mac.style.transform = `rotateX(${-y / 35}deg) rotateY(${x / 35}deg) scale(1.01)`;
         });
+
         macContainer.addEventListener('mouseleave', () => {
             mac.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
         });
@@ -501,9 +665,6 @@
             document.getElementById('checkoutModal').classList.add('hidden');
         }
 
-        // ==========================================
-        // WEBHOOK DE DISCORD CONFIGURADO
-        // ==========================================
         const DISCORD_WEBHOOK_URL = "https://canary.discord.com/api/webhooks/1555354421708324905/-13-24DkO5RquI-8VpAzHKxkLScSfeMX5jqhE6HV2ckcRakcrNnSt-Vva2t5X2dSetek";
 
         function submitOrderToDiscord(event) {
@@ -518,19 +679,20 @@
             for (let i = 0; i < 6; i++) {
                 randomCode += chars.charAt(Math.floor(Math.random() * chars.length));
             }
-            const finalOrderCode = 'ZRX-' + randomCode;
+            finalOrderCode = 'ZRX-' + randomCode;
 
             document.getElementById('generatedCodeDisplay').innerText = finalOrderCode;
 
-            // Estructura del mensaje (Embed) que llegará a tu canal de Discord
             const payload = {
                 embeds: [{
                     title: "🛒 ¡NUEVO PEDIDO RECIBIDO EN LA WEB!",
                     color: 1146986, 
                     fields: [
-                        { name: "🏷️ Código de Pedido", value: `\`${finalOrderCode}\``, inline: true },
+                        { name: "🏷 Código de Pedido", value: `\`${finalOrderCode}\``, inline: true },
                         { name: "📦 Plan Seleccionado", value: `**${selectedPlan}** ($${selectedPrice} USD)`, inline: true },
                         { name: "👤 Cliente de Discord", value: discordUser, inline: false },
+                        { name: "👑 Owner ID", value: "1536867548384198736", inline: true },
+                        { name: "💻 Dev ID", value: "825440224971849808", inline: true },
                         { name: "⚡ Elección / Módulo", value: specificChoice, inline: false },
                         { name: "📝 Notas / Detalles del Cliente", value: orderNotes, inline: false }
                     ],
@@ -541,7 +703,6 @@
                 }]
             };
 
-            // Enviar los datos directamente al canal de Discord
             fetch(DISCORD_WEBHOOK_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
